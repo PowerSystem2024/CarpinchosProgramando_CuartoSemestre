@@ -27,7 +27,7 @@
 
 --
 Responsabilidades:
-Administrar la conexión a la 
+Administrar la conexión a la
 base de datos y el pool.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>80</y><w>210</w><h>160</h></coordinates><panel_attributes>Usuario
 --
 	•	-id_usuario: int
