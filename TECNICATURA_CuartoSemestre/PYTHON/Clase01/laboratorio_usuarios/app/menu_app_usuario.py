@@ -1,7 +1,6 @@
 from modelos.usuario import Usuario
 from datos.usuario_dao import UsuarioDao
 from utilidades.logger_base import logger
-import os
 
 def mostrar_menu():
     while True:
@@ -36,15 +35,46 @@ def mostrar_menu():
         elif opcion == '3':
             try:
                 id_usuario_var = int(input("Ingrese el ID del usuario a actualizar: "))
-                username_var = input("Ingrese el nombre del usuario a modificar: ")
-                password_var = input("Ingrese la contraseña del usuario a modificar: ")
-                usuario = Usuario(id_usuario=id_usuario_var, username=username_var, password=password_var) # Se crea un objeto de tipo usuario
-                usuario_actualizado = UsuarioDao.actualizar(usuario) # Se actualiza el usuario por medio del metodo actualizar de usuarioDao
-                logger.info(f"Usuario actualizado correctamente: {usuario_actualizado}") # Informa que el usuario fue actualizado correctamente
-                print("Usuario actualizado correctamente")
+                
+                usuarios = UsuarioDao.seleccionar()
+                usuario_actual = next((u for u in usuarios if u.id_usuario == id_usuario_var), None)
+
+                if not usuario_actual:
+                    print("No se encontró el usuario con ese ID.")
+                    return
+
+                print("\n¿Qué desea modificar?")
+                print("1. Username")
+                print("2. Password")
+                print("3. Ambos")
+                opcion_modificacion = input("Seleccione una opción (1/2/3): ")
+
+                username_var = None
+                password_var = None
+
+                if opcion_modificacion == '1':
+                    username_var = input("Ingrese el nuevo nombre de usuario: ")
+                elif opcion_modificacion == '2':
+                    password_var = input("Ingrese la nueva contraseña: ")
+                elif opcion_modificacion == '3':
+                    username_var = input("Ingrese el nuevo nombre de usuario: ")
+                    password_var = input("Ingrese la nueva contraseña: ")
+                else:
+                    print("Opción inválida. No se realizó ninguna modificación.")
+                    return
+
+                nuevo_username = username_var if username_var is not None else usuario_actual.username
+                nuevo_password = password_var if password_var is not None else usuario_actual.password
+
+                usuario = Usuario(id_usuario=id_usuario_var, username=nuevo_username, password=nuevo_password)
+                usuario_actualizado = UsuarioDao.actualizar(usuario)
+
+                logger.info(f"Usuario actualizado correctamente: {usuario_actualizado}")
+                print("✅ Usuario actualizado correctamente")
+
             except Exception as e:
-                print("Error al actualizar usuario:", e) # Si no puedo actualizar el usuario lo informa
-                logger.info("Error al actualizar usuario:")
+                print("❌ Error al actualizar usuario:", e)
+                logger.error(f"Error al actualizar usuario: {e}")
         elif opcion == '4':
             try:
                 id_usuario_var = int(input("Ingrese el ID del usuario a eliminar: ")) # Se solicita al usuario el id del usuario a eliminar
@@ -61,6 +91,6 @@ def mostrar_menu():
         else:
             try:
                 logger.info("Opción inválida") # Si ingresa una opción que no es 1, 2, 3 o 4 lo informa con exception
-                raise Exception(f"Opción inválida") # Si ingresa una opción que no es 1, 2, 3 o 4 lo informa con exception
+                raise Exception("Opción inválida") # Si ingresa una opción que no es 1, 2, 3 o 4 lo informa
             except Exception as e:
-                print("Error al cerrar la aplicación.: {e}")
+                print("Error al seleccionar una opcion: {e}")
