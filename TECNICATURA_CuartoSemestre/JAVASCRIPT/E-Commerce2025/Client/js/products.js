@@ -4,7 +4,7 @@ const productos = [
     productName: "Coca-Cola",
     price: 1400,
     quanty: 1,
-    img: "/Users/mac/Desktop/CarpinchosProgramando_CuartoSemestre/TECNICATURA_CuartoSemestre/JAVASCRIPT/E-Commerce2025/Client/media/coca-cola.png",
+    img: "../media/coca-cola.png",
   },
 
   {
@@ -12,7 +12,7 @@ const productos = [
     productName: "Leche en polvo",
     price: 800,
     quanty: 1,
-    img: "/Users/mac/Desktop/CarpinchosProgramando_CuartoSemestre/TECNICATURA_CuartoSemestre/JAVASCRIPT/E-Commerce2025/Client/media/lechenpolvo.png",
+    img: "../media/lechenpolvo.png",
   },
 
   {
@@ -20,14 +20,14 @@ const productos = [
     productName: "Fideos instantáneos",
     price: 1000,
     quanty: 1,
-    img: "/Users/mac/Desktop/CarpinchosProgramando_CuartoSemestre/TECNICATURA_CuartoSemestre/JAVASCRIPT/E-Commerce2025/Client/media/fideos2.png",
+    img: "../media/fideos2.png",
   },
 
-   {
+  {
     id: 1,
     productName: "Atún",
     price: 1500,
     quanty: 1,
-    img: "/Users/mac/Desktop/CarpinchosProgramando_CuartoSemestre/TECNICATURA_CuartoSemestre/JAVASCRIPT/E-Commerce2025/Client/media/atun.png",
+    img: "../media/atun.png",
   },
 ];

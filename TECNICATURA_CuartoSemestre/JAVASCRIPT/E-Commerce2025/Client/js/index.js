@@ -5,7 +5,7 @@ productos.forEach((product) =>{
     content.innerHTML = `
         <img src="${product.img}">
         <h3>${product.productName}</h3>
-        <p>${product.price} $</p>
+        <p>$ ${product.price} </p>
     `;
     shopContent.append(content);
-}); 
+});
