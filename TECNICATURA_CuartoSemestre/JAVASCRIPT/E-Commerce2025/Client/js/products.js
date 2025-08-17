@@ -8,7 +8,7 @@ const productos = [
   },
 
   {
-    id: 1,
+    id: 2,
     productName: "Leche en polvo",
     price: 800,
     quanty: 1,
@@ -16,7 +16,7 @@ const productos = [
   },
 
   {
-    id: 1,
+    id: 3,
     productName: "Fideos instantáneos",
     price: 1000,
     quanty: 1,
@@ -24,7 +24,7 @@ const productos = [
   },
 
   {
-    id: 1,
+    id: 4,
     productName: "Atún",
     price: 1500,
     quanty: 1,
