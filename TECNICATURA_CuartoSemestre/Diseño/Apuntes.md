@@ -140,4 +140,228 @@ Tambien necesitamos aprovechar el uso de la herramienta del brief por ejemplo en
 
 ---
 
+## Clase 2
+### UX - Experiencia de Usuario
+Debemos diseñar nuestro software para que sea amigable con el usuario. Este diseño se centra en los usuarios y en la usabilidad.
+
+El diseño UX tiene varias etapas.
+1.	**Investigación**: Recopilamos datos de como se comporta el usuario y como usa otras apps similares o apps existentes.
+2.	**Análisis**: Seleccionamos y agrupamos la información según los objetivos hacia el usuario.
+3.	**Diseño**: Creamos prototipos, flujos de usuarios para visualizar las mejores practicas para el producto final.
+4.	**Pruebas de usuarios**: Se realizan pruebas con sketches, en papel o con demos para ver la interacción del usuario con el producto sin ser el diseño final. Esto nos permite ajustar nuestro diseño antes de pasar a la etapa de desarrollo.
+
+```mermaid
+flowchart TD
+    %% Definir el nodo central Home
+    Home[Home]
+
+    %% Definición de los paquetes/contenedores
+    subgraph Menu [Menú]
+        direction LR
+        A[Promociones]
+        B[Categorías]
+        B --> C[Hamburguesas]
+        B --> D[Acompañamientos]
+        B --> E[Bebidas]
+        B --> F[Postres]
+    end
+
+    subgraph Pedidos [Pédidos]
+        direction LR
+        G[Resumen]
+        H[Datos de envío]
+        I[Confirmación]
+    end
+
+    subgraph Contacto [Contacto]
+        direction LR
+        J[Sucursales]
+        K[TikTok]
+        L[Facebook]
+        M[Pagos]
+    end
+
+    subgraph Externas [Páginas externas]
+        direction LR
+        N[Instagram]
+        O[TikTok]
+        P[Facebook]
+        Q[Pagos]
+    end
+
+    %% Conectar Home a cada sección principal
+    Home --> Menu
+    Home --> Pedidos
+    Home --> Contacto
+    Home --> Externas
+
+    %% Estilo para el nodo Home
+    classDef home fill:#ff9,stroke:#333,stroke-width:3px,color:#000;
+    class Home home;
+    
+    %% Estilo para los paquetes
+    classDef package fill:#eef,stroke:#333,stroke-width:2px,color:#000;
+    class Menu,Pedidos,Contacto,Externas package;
+```
+
+El primer paso de nuestro diseño ux es el diagrama de flujo, pasamos el contenido del brief a elementos tangibles. El primer diagrama es el site-map es el mapa de nuestro sitio. Aquí se definen las secciones principales, las secundarias y paginas externas.
+
+Al realizar el diagrama de flujo, debemos tener en cuenta el objetivo que quiere lograr nuestro cliente, por ejemplo, dar a conocer sus productos. Conociendo esos requerimientos, diseñamos el diagrama de flujo con: 
+
+```mermaid
+flowchart TD
+A[MENU] --> PROMOCIONES 
+
+
+A2[MENU] --> B[CATEGORIAS]
+B --> C[HAMBURGUESAS]
+B --> D[ACOMPAÑAMIENTOS]
+B --> E[BEBIDAS]
+B --> F[POSTRES]
+```
+
+Otro objetivo del cliente es aumentar su presencia en línea, por lo mismo trabajamos con 
+
+```mermaid
+flowchart TD
+A[PAGINAS EXTRAS] --> B[INSTAGRAM]
+                 A --> C[TIK TOK]
+                 A --> D[FACEBOOK]
+                 A --> E[PAGOS]
+```
+
+Nuestro cliente quiere que realicen pedidos on-line por lo que agregamos:
+
+```mermaid
+flowchart TD
+A[PEDIDOS] --> B[RESUMEN]
+         A --> C[DATOS DE ENVÍO]
+         A --> D[CONFIRMACIÓN]
+```
+
+Agregamos **CONTACTO > SUCURSALES** para que nuestro cliente de a conocer su marca.
+
+El user-flow es el diagrama de los pasos que va a hacer el usuario para completar una tarea. Con este flujo podemos saber cuantas pantallas o componentes necesitamos para las acciones del usuario. No hay un numero definido de pantallas o componentes que vamos a diseñar.
+
+<img width="1122" height="827" alt="image" src="https://github.com/user-attachments/assets/804520f3-9a5d-4596-8af9-d914a5d5114d" />
+
+
+<div align="center">
+
+| DIAGRAMAS DE FLUJO | WIREFRAMES |
+|--------------|--------------|
+| Nos permite llevar requerimientos de nuestros Brief a elementos tangibles | Son planos o bosquejos de nuestra aplicación |
+| 　　　       | Tiene dos tipos: Bajo nivel (a mano) y alto nivel (en un programa) |
+
+</div>
+
+
+#### Wireframes: Web
+<img width="1036" height="1574" alt="image" src="https://github.com/user-attachments/assets/218fb2c7-0d93-4d23-822c-d4a7f575a20a" />
+
+#### Wireframes: Mobile
+<img width="538" height="1557" alt="image" src="https://github.com/user-attachments/assets/fba91b02-851f-4799-b575-27e40fae76ae" /> <img width="531" height="1636" alt="image" src="https://github.com/user-attachments/assets/0f55018e-bf39-455e-a800-daf5c60ed735" />
+
+
+El wireframe es el plano de nuestra aplicación, es un boceto de todos los componentes y pantallas que va a tener nuestra aplicación que previamente salieron el los diagramas de flujos y los user-flows. Los wireframes pueden ser de bajo nivel (hechos a mano en lápiz y papel) y los de alto nivel (son creados en programas de diseño como figma-miro-canva).
+
+
+Es importante esta herramienta para los desarrolladores ya que les da una idea de la dimensión de la aplicación final y van a poder hacer estimaciones, además de decidir con que tecnologías y herramientas trabajar. Es importante también para el cliente porque va a ver que secciones va a tener su página/app con este wireframe como si fuera un producto terminado. No se usan paletas de colores. Solo escala de grises.
+
+
+#### Definición del diseño UI – Interfaz de usuario
+Este diseño se enfoca en la capa de estilos visuales que va por encima de la estructura de contenido. Se diferencia del diseño UX en que este ultimo se centra en la investigación, prototipado y arquitectura de la información., se encarga del diseño de interacción y pruebas de usuarios mientras que el UI se enfoca en el diseño visual, colores, layout, tipografía.
+
+Cuando trabajamos con ambos diseños al mismo tiempo garantizamos que nuestra aplicación sea atractiva al usuario, agradable y funcional.
+
+No se le debe restar importancia a ninguno de los dos tipos de diseños.
+
+
+<img width="1148" height="1212" alt="image" src="https://github.com/user-attachments/assets/ab038363-a1b9-4996-819a-93b8674acc42" />
+
+#### MoodBoard
+Referencias orientativas de otras páginas webs, diseños, formatos, imágenes, palabras. Pueden ser físicas como recortes de revistas, paginas impresas o pueden ser digitales.
+
+Por ejemplo: muro de Pinterest donde de un tema en común se aglutinan imágenes e información que sirve para inspirar y tener ideas.
+
+> Su traducción literal es mapa de inspiración, un moodboard es una colección de referencias visuales, un tablero o documento.
+
+> Empezamos a recopilar referencias, es una herramienta creativa que consiste en una visualización rápida de imágenes y palabras de un mismo soporte.
+
+#### Teoría del Color
+
+<img width="1138" height="757" alt="image" src="https://github.com/user-attachments/assets/c89c125e-80f5-4a51-95fe-744eef709a80" />
+
+
+<img width="1160" height="815" alt="image" src="https://github.com/user-attachments/assets/77a4f658-13b5-4e19-bfd9-251747fd5a0e" />
+
+
+<img width="1149" height="1591" alt="image" src="https://github.com/user-attachments/assets/72597261-9d27-48e4-a5eb-cb96b27c2179" />
+
+Para saber cuales colores son los adecuados para un diseño, aplicamos lo que es la teoría del color. Esta tiene que ver con lo que es la psicología del color que es un área de estudia lo que el cerebro percibe y asocia a conceptos y sentimientos. Entonces se puede decir que los colores se asocian a sentimientos como por ej.: el color rojo se asocia a la pasión, comida, deportes, sexo, ira, entretenimiento, amor, calor, poder, espontaneidad, peligro, etc.
+
+Para diseñar una app debemos tener en cuenta como trabajar la paleta de colores:
+- Utiliza colores RGB (pantalla) y hexadecimales.
+- Define una paleta de color.
+
+
+<img width="915" height="1061" alt="image" src="https://github.com/user-attachments/assets/0cb3b25a-8da7-4738-b66f-ca360e00a692" />
+
+
+<img width="1149" height="1476" alt="image" src="https://github.com/user-attachments/assets/9957dc21-9647-439d-8bfb-cddf793fcb3e" />
+
+
+- Crea un código de color consistente. **Menos es más**. No usar tantos colores, esto distrae a los usuarios y no los enfoca en sus acciones.
+- Asegura que tu elección de color sea accesible.
+
+
+<img width="574" height="1326" alt="image" src="https://github.com/user-attachments/assets/171002ec-65a4-4272-8315-738cb1010365" /> <img width="554" height="1324" alt="image" src="https://github.com/user-attachments/assets/b772a558-4c89-499c-ae53-2a008bc7897d" />
+
+
+
+Al diseñar nuestra página web, es muy útil crear un archivo con los códigos de nuestra paleta de colores y añadirla a nuestro css.
+
+Para construir nuestra paleta de colores, es necesario saber que colores existen. 
+
+Colores primarios como azul, amarillo, rojo, blanco y negro. Tambien están los colores secundarios son el resultado de la combinación de los colores primarios. Los colores terciarios son los colores intermedios que hay entre los colores primarios y secundarios
+
+- Tipos de paleta de combinaciones:
+  - **Monocromática**: Son diferentes tonos de un solo color, pero con diferente opacidad.
+
+<img width="667" height="471" alt="image" src="https://github.com/user-attachments/assets/56ca945d-7025-42dc-aacf-0f6f2824b22b" />
+
+  - **Análoga**: Esta resulta de combinar un color primario con un color secundario y otro terciario que sean contiguos en el círculo cromático.
+
+<img width="652" height="526" alt="image" src="https://github.com/user-attachments/assets/30bd4032-eec1-4715-8251-22dadb60ce96" />
+
+  - **Complementaria**: Consiste en combinar un color primario con otro secundario pero que estén opuestos en el círculo cromático.
+
+<img width="622" height="507" alt="image" src="https://github.com/user-attachments/assets/6ef5fc5b-df36-488a-a533-2fdcdec430f2" />
+
+  - **Triádica**: Se trata de combinar tres colores que estén en el circulo cromático de forma que formen un triángulo entre ellas.
+
+<img width="630" height="550" alt="image" src="https://github.com/user-attachments/assets/d7836e8c-cbab-4f4e-90fc-69eb5441f977" />
+
+  - **Tétrada**: Se combinan 4 colores en las que entre ellos se forma un rectángulo en el círculo cromático.
+
+<img width="728" height="367" alt="image" src="https://github.com/user-attachments/assets/cad493be-5820-449a-bf3b-32581d1bd7a7" />
+
+#### Crear Paletas de Colores
+- Tipografías:
+
+```mermaid
+flowchart TD
+
+A[Tipografía <br> - Número mínimo de fuentes. <br> - Fuente estándar por el soporte. <br> - Limitar la cantidad de texto. <br> - Legibles en diferentes tamaños. <br> - Altos niveles de entrelineado. <br> - Contraste. <br> - Evitar usar animaciones intermitentes.]
+
+A --> B[Serif <br> Es una fuente tradicional, sotisficada, confiable, práctica y formal. Se puede usar en logos, textos de párrafos, títulos o impresos.]
+A --> C[Sans-Serif <br> Es una fuente moderna, limpia, humanista, geométrica y universal. Se puede usar en logos, texto de párrafos, títulos y títulos pequeños.]
+A --> D[Script - Cursiva <br> Es una fuente elegante, clásica, formal, sotisficada y estilizada. Se puede usar en logos, títulos, invitaciones y para textos cortos.]
+
+```
+
+---
+
+## BIBLIOGRAFÍA
+- https://miro.com/app/board/o9J_kqXgfLs=/
 
