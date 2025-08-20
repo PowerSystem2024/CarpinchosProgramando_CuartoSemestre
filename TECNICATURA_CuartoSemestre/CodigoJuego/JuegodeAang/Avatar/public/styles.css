@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Henny+Penny&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Klee+One&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Overlock+SC&display=swap');
+    body {
+        font-family: 'Overlock SC', 'Merriweather', 'Nunito Sans', 'Inter', sans-serif;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-image: url("./assets/fondo.png");
+        background-repeat: repeat;
+        background-size: 120px 120px;
+        position: relative;
+        color: #000000;
+        background-color: antiquewhite; /* Color de fondo */
+        text-shadow:
+            0 0 5px rgb(255, 255, 0),
+            0 0 10px rgb(255, 157, 0),
+            0 0 20px rgb(255, 0, 0),
+    }
+
+    h1,
+    #seleccionar-personaje,
+    #seleccionar-ataque,
+    #mensajes,
+    .reglas,
+    #reiniciar {
+        background-color: rgba(73, 45, 2, 0.887); /* Blanco semitransparente */
+        padding: 20px;
+        width: 70%;
+        height: 80%;
+        border-radius: 18px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 1.5);
+        margin: 20px auto;
+        color: rgb(255, 224, 144);
+    }
+
+    #seleccionar-personaje,
+    #seleccionar-ataque,
+    #mensajes,
+    #reiniciar {
+        font-size: 26px;
+    }
+
+    h1{
+        font-size: 50px;
+    }
+
+    span{
+        text-shadow: rgb(0, 0, 0) 0 5px;
+    }
+
+    #seleccionar-personaje {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    .contenedor-principal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .personajes-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+
+    .personaje {
+        text-align: center;
+    }
+
+    .personaje img {
+        width: 160px;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .boton-container {
+        margin-top: 20px;
+    }
+
+    button, .boton-reglas {
+        background-color: #cc8118; /* Color de fondo del botón */
+        color: rgb(103, 74, 48); /* Color del texto del botón */
+        border: none; /* Sin borde */
+        padding: 10px 20px; /* Espaciado interno */
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer; /* Cambia el cursor al pasar por encima */
+        font-size: 18px; /* Tamaño de fuente del botón */
+        font-weight: bolder;
+    }
+
+    button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(40%);
+    transition: all 0.2s ease-in-out;
+    }
+
+    #mensajes {
+    width: 70%;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .icon {
+        margin-right: 10px;
+        filter: drop-shadow(2px 2px 5px rgba(255, 255, 250, 2));
+        background-color: rgba(53, 47, 1, 0.169);
+        border-radius: 10px; /* Bordes redondeados */
+        padding: 5px; /* Espaciado interno */
+    }
+
+    .reglas{
+        display: none;
+        background-color: rgb(103, 74, 48);
+        color: white;
+        text-align: left;
+    }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(50, 50, 50, 0.6); /* fondo gris transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    position: relative;
+    background-color: rgb(103, 74, 48);
+    padding: 5% 8% 5% 10%;
+    border-radius: 12px;
+    width: 30%;
+    height: auto;
+    color: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+/* Ondas arriba */
+.modal-contenido::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 20px;
+    background:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="20" preserveAspectRatio="none"><path d="M0 10 Q5 0 10 10 T20 10 T30 10 T40 10 T50 10 T60 10 T70 10 T80 10 T90 10 T100 10" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-x;
+    background-size: 20px 20px;
+    pointer-events: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Ondas abajo */
+.modal-contenido::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 20px;
+    background:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="20" preserveAspectRatio="none"><path d="M0 10 Q5 20 10 10 T20 10 T30 10 T40 10 T50 10 T60 10 T70 10 T80 10 T90 10 T100 10" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-x;
+    background-size: 20px 20px;
+    pointer-events: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Ondas izquierda */
+.modal-contenido > .border-left {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 10px;
+    width: 20px;
+    background:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="100%" preserveAspectRatio="none"><path d="M10 0 Q0 5 10 10 T10 20 T10 30 T10 40 T10 50 T10 60 T10 70 T10 80 T10 90 T10 100" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-y;
+    background-size: 20px 20px;
+    pointer-events: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* Ondas derecha */
+.modal-contenido > .border-right {
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    right: 10px;
+    width: 20px;
+    background:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="100%" preserveAspectRatio="none"><path d="M10 0 Q20 5 10 10 T10 20 T10 30 T10 40 T10 50 T10 60 T10 70 T10 80 T10 90 T10 100" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-y;
+    background-size: 20px 20px;
+    pointer-events: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+
+.cerrar-modal {
+    position: absolute;
+    top: 3%;
+    right: 4%;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(255, 224, 144);
+    transition: color 0.3s, transform 0.3s; /* para animar suavemente */
+
+    &:hover {
+        color: rgb(172, 105, 11);
+        transform: scale(1.5); /* sin el % y usando transform */
+        transition: color 0.1s, transform 1s;
+    }
+}
+
+.modal-contenido h4 {
+    margin-top: 0;
+}

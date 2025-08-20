@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Henny+Penny&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Klee+One&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Avatar: La Leyenda de Aang</title>
+    <script src="avatar.js"></script>
+
+</head>
+<body>
+    <div>
+        <h1>
+            <img class="icon" src="assets/fuego.png" alt="Fuego" width="50">
+            <img class="icon" src="assets/aire.png" alt="Aire" width="50">
+            Avatar: La Leyenda de Aang
+            <img class="icon" src="assets/tierra.png" alt="Tierra" width="50">
+            <img class="icon" src="assets/agua.png" alt="Agua" width="50">
+        </h1>
+    </div>
+
+    <button id="boton-reglas">Reglas del Juego</button>
+    <!-- Modal -->
+    <div id="modal-reglas" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" id="cerrar-reglas">&times;</span>
+            <h4>Reglas del Juego</h4>
+            <ol>
+                <li>Selección de Personaje:
+                    <ul>
+                        <li>El jugador elige entre Zuko, Katara, Aang y Toph</li>
+                        <li>El enemigo se asigna aleatoriamente</li>
+                    </ul>
+                </li>
+                <li>Ataques:
+                    <ul>
+                        <li>El jugador elige entre Puño, Patada o Barrida</li>
+                        <li>El enemigo elige aleatoriamente</li>
+                    </ul>
+                </li>
+                <li>Vidas:
+                    <ul>
+                        <li>Ambos tienen 3 vidas</li>
+                        <li>Perder un combate resta una vida</li>
+                    </ul>
+                </li>
+                <li>Reglas de Combate:
+                    <ul>
+                        <li>Puño vence a Barrida</li>
+                        <li>Patada vence a Puño</li>
+                        <li>Barrida vence a Patada</li>
+                    </ul>
+                </li>
+            </ol>
+        <div class="border-left"></div>
+        <div class="border-right"></div>
+        </div>
+    </div>
+
+    <section id="seleccionar-personaje">
+        <div class="contenedor-principal">
+            <h2>Selecciona tu personaje</h2>
+
+            <div class="personajes-container">
+                <div class="personaje">
+                    <img src="assets/Zuko.jpg" alt="Zuko">
+                    <br>
+                    <input type="radio" name="personaje" id="zuko"/>
+                    <label for="zuko">Zuko</label>
+                </div>
+                <div class="personaje">
+                    <img src="assets/Katara.jpg" alt="Katara">
+                    <br>
+                    <input type="radio" name="personaje" id="katara"/>
+                    <label for="katara">Katara</label>
+                </div>
+                <div class="personaje">
+                    <img src="assets/Aang.jpg" alt="Aang"/>
+                    <br>
+                    <input type= "radio" name="personaje" id="aang"/>
+                    <label for="aang">Aang</label>
+                </div>
+                <div class="personaje">
+                    <img src="assets/Toph.jpg" alt="toph">
+                    <br>
+                    <input type="radio" name="personaje" id="toph"/>
+                    <label for="toph">Toph</label>
+                </div>
+            </div>
+
+            <div class="boton-container">
+                <button id="boton-personaje">Seleccionar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="seleccionar-ataque">
+        <p>Tu personaje <span id="personaje-jugador"></span> tiene <span id="vida-jugador">3</span> vidas</p>
+        <p>El personaje <span id="personaje-enemigo"></span> de tu enemigo tiene <span id="vida-enemigo">3</span> vidas</p>
+        <h2>Elige tu ataque:</h2>
+        <p>
+            <button id="boton-punio">Puño 🤜🏻</button>
+            <button id="boton-patada">Patada🦵🏻</button>
+            <button id="boton-barrida">Barrida 🦶🏻</button>
+        </p>
+    </section>
+
+    <section id="mensajes">
+        <p></p>
+    </section>
+
+    <section id="reiniciar">
+        <button id="boton-reiniciar" >Reiniciar</button>
+    </section>
+</body>
+</html>

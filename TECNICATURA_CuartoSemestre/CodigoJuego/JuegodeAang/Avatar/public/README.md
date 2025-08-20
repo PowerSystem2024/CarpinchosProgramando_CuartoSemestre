@@ -283,7 +283,7 @@ Modal de reglas con bordes animados usando SVG en background.
 
 ## 📝 Notas Adicionales
 
-Este juego es completamente interactivo gracias al uso del DOM y los event listeners.
+Este juego es completamente interactivo gracias al uso del DOM y los event listeners.  
 Ideal para aprender cómo combinar JavaScript con interfaces dinámicas, lógica de combate y control de flujo según las decisiones del usuario.
 
 ---
