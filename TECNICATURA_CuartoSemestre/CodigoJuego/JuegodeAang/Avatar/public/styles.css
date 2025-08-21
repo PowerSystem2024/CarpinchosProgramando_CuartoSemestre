@@ -8,6 +8,7 @@
         background-image: url("./assets/fondo.png");
         background-repeat: repeat;
         background-size: 120px 120px;
+        font-size: clamp(14px, 2vw, 20px);
         position: relative;
         color: #000000;
         background-color: antiquewhite; /* Color de fondo */
@@ -25,8 +26,9 @@
     #reiniciar {
         background-color: rgba(73, 45, 2, 0.887); /* Blanco semitransparente */
         padding: 20px;
-        width: 70%;
+        width: 90%;
         height: 80%;
+        max-width: 1000px;
         border-radius: 18px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 1.5);
         margin: 20px auto;
@@ -41,7 +43,7 @@
     }
 
     h1{
-        font-size: 50px;
+    font-size: clamp(28px, 6vw, 50px);
     }
 
     span{
@@ -74,8 +76,22 @@
         text-align: center;
     }
 
+    .personaje:has(input[type="radio"]:checked) {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 140, 0, 0.6);
+    transform: scale(1.1);
+    border-radius: 20px;
+    }
+
+    @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+    }
+
     .personaje img {
         width: 160px;
+        max-width: 100%;
         height: auto;
         border-radius: 20px;
     }
@@ -85,14 +101,21 @@
     }
 
     button, .boton-reglas {
-        background-color: #cc8118; /* Color de fondo del botón */
-        color: rgb(103, 74, 48); /* Color del texto del botón */
-        border: none; /* Sin borde */
-        padding: 10px 20px; /* Espaciado interno */
-        border-radius: 5px; /* Bordes redondeados */
-        cursor: pointer; /* Cambia el cursor al pasar por encima */
-        font-size: 18px; /* Tamaño de fuente del botón */
+        background-color: #cc8118;
+        color: rgb(103, 74, 48);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: clamp(14px, 1.8vw, 20px);
+        padding: 0.6em 1.2em;
         font-weight: bolder;
+    }
+
+    button:hover, .boton-reglas:hover{
+        transform: scale(1.2);
+        color: rgb(186, 165, 3);
+        background-color: rgb(26, 19, 0);
+        border-radius: 12px;
     }
 
     button:disabled {
@@ -142,14 +165,15 @@
 .modal-contenido {
     position: relative;
     background-color: rgb(103, 74, 48);
-    padding: 5% 8% 5% 10%;
     border-radius: 12px;
-    width: 30%;
+    width: 90%;
     height: auto;
     color: white;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
     text-align: left;
-    font-size: 30px;
+    max-width: 500px;
+    font-size: clamp(16px, 2vw, 22px);
+    padding: 20px;
     overflow: hidden;
 }
 
@@ -162,7 +186,7 @@
     right: 10px;
     height: 20px;
     background:
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="20" preserveAspectRatio="none"><path d="M0 10 Q5 0 10 10 T20 10 T30 10 T40 10 T50 10 T60 10 T70 10 T80 10 T90 10 T100 10" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-x;
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="20" preserveAspectRatio="none"><path d="M0 10 Q5 0 10 10 T20 10 T30 10 T40 10 T50 10 T60 10 T70 10 T80 10 T90 10 T100 10" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-x;
     background-size: 20px 20px;
     pointer-events: none;
     border-top-left-radius: 8px;
@@ -178,7 +202,7 @@
     right: 10px;
     height: 20px;
     background:
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="20" preserveAspectRatio="none"><path d="M0 10 Q5 20 10 10 T20 10 T30 10 T40 10 T50 10 T60 10 T70 10 T80 10 T90 10 T100 10" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-x;
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="20" preserveAspectRatio="none"><path d="M0 10 Q5 20 10 10 T20 10 T30 10 T40 10 T50 10 T60 10 T70 10 T80 10 T90 10 T100 10" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-x;
     background-size: 20px 20px;
     pointer-events: none;
     border-bottom-left-radius: 8px;
@@ -193,7 +217,7 @@
     left: 10px;
     width: 20px;
     background:
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="100%" preserveAspectRatio="none"><path d="M10 0 Q0 5 10 10 T10 20 T10 30 T10 40 T10 50 T10 60 T10 70 T10 80 T10 90 T10 100" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-y;
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="100%" preserveAspectRatio="none"><path d="M10 0 Q0 5 10 10 T10 20 T10 30 T10 40 T10 50 T10 60 T10 70 T10 80 T10 90 T10 100" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-y;
     background-size: 20px 20px;
     pointer-events: none;
     border-top-left-radius: 8px;
@@ -208,7 +232,7 @@
     right: 10px;
     width: 20px;
     background:
-      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="100%" preserveAspectRatio="none"><path d="M10 0 Q20 5 10 10 T10 20 T10 30 T10 40 T10 50 T10 60 T10 70 T10 80 T10 90 T10 100" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-y;
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="100%" preserveAspectRatio="none"><path d="M10 0 Q20 5 10 10 T10 20 T10 30 T10 40 T10 50 T10 60 T10 70 T10 80 T10 90 T10 100" stroke="yellow" stroke-width="3" fill="none"/></svg>') repeat-y;
     background-size: 20px 20px;
     pointer-events: none;
     border-top-right-radius: 8px;
@@ -235,4 +259,76 @@
 
 .modal-contenido h4 {
     margin-top: 0;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .personaje {
+        flex: 1 1 45%; /* dos columnas */
+        max-width: 45%;
+    }
+    .personajes-container {
+        gap: 20px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Base más pequeña */
+    }
+
+    h1, h2 {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+
+    #seleccionar-personaje,
+    #seleccionar-ataque,
+    #mensajes,
+    #reiniciar {
+        width: 95%;
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    .personajes-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .personaje img {
+        width: 120px;
+    }
+
+    .personaje label {
+        display: block;
+        font-size: 16px;
+        margin-top: 4px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 8px 16px;
+        margin-top: 8px;
+    }
+
+    #mensajes {
+        font-size: 16px;
+        margin-top: 10px;
+        line-height: 1.4;
+        padding: 8px;
+    }
+
+    /* Modal optimizado */
+    .modal-contenido {
+        width: 95%;
+        font-size: 16px;
+        padding: 30px;
+    }
+
+    .icon{
+        width: 30px;
+        height: 30px;
+    }
 }
