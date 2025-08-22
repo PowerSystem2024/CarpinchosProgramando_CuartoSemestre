@@ -9,7 +9,7 @@ CapyGaming busca posicionarse como una tienda especializada en tecnología y gam
 - 🧩 **Valores:** Transparencia, calidad, comunidad, eficiencia.
 
 ## 3. 🎯 Público Objetivo
-- Gamers de todos los niveles.  
+- Gamers que desean potenciar su hadware.  
 - Interesados en hardware, periféricos, accesorios y cultura tecnológica.  
 - Buscan estética, funcionalidad y confianza en la compra.  
 - Estudiantes y profesionales que necesitan actualizar sus equipos.
@@ -19,9 +19,9 @@ CapyGaming busca posicionarse como una tienda especializada en tecnología y gam
 - **Estilo gráfico:** Minimalista, con ilustraciones vectoriales y elementos pixel-art.  
 - **Posibles Tipografías:**
   - **Para títulos y ofertas:**  
-    `Orbitron`, `Press Start 2P`, `VT32`, `Russo One`, `Audiowide`  
+    `Audiowide`  
   - **Para descripciones y textos secundarios:**  
-    `Roboto Mono`, `Exo 2`
+    `Exo 2`
 
 ## 5. 📦 Aplicaciones de Marca
 - Logo adaptable para web, redes sociales y packaging.  
