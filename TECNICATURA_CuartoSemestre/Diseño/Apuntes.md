@@ -365,7 +365,6 @@ A --> D[Script - Cursiva <br> Es una fuente elegante, clásica, formal, sotisfic
 
 ```
 
-
 # **Consejos para el uso de tipografías en aplicaciones**
 
 * **Evita usar muchas fuentes:** Limita el número de tipografías y, si es posible, usa las fuentes estándar para asegurar una buena compatibilidad y soporte.
@@ -391,9 +390,9 @@ Además, se mencionan reglas para combinar fuentes, divididas en tres categoría
 * **Sans Serif:** Moderna y limpia. Ideal para logos, párrafos, y títulos pequeños.
 * **Script:** Elegante y estilizada. Se usa en logos, títulos, invitaciones y textos cortos.
 
-
 ![1756172651633](image/Apuntes/1756172651633.png)
 
+# Clase 3
 
 # Layout y Grillas
 
@@ -446,7 +445,6 @@ El proceso de diseño comienza con un wireframe (un boceto básico de la estruct
 
 ![1756173643883](image/Apuntes/1756173643883.png)
 
-
 # ¿Qué es un Theme (tema)?
 
 Un **theme** es una capa de color y estilo que se aplica sobre una aplicación para modificar su apariencia visual. Permite tener diferentes variaciones de diseño sin necesidad de realizar cambios drásticos en el código principal.
@@ -482,7 +480,6 @@ Además de la elección del formato, hay otras consideraciones importantes para 
 * **Ajusta el tamaño:** Exporta las imágenes al tamaño exacto en que se mostrarán en su contenedor. Redimensionar imágenes muy grandes con CSS puede arruinar su calidad y aumenta innecesariamente el tiempo de carga.
 * **Usa lazy loading:** Esta estrategia carga las imágenes solo cuando el usuario se desplaza hacia ellas. Esto reduce significativamente el tiempo de carga inicial de la página.
 * **Añade texto alternativo (alt text):** Es crucial incluir una descripción en el atributo `alt` de cada imagen. Este texto es leído por lectores de pantalla, haciendo que tu contenido sea accesible para personas con discapacidades visuales.
-
 
 ![1756175493081](image/Apuntes/1756175493081.png)
 
