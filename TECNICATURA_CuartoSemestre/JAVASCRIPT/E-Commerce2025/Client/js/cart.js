@@ -2,6 +2,7 @@ const modalContainer = document.getElementById("modal-container");
 const modalOverlay = document.getElementById("modal-overlay");
 
 const cartBtn = document.getElementById("cart-btn");
+const cartCounter = document.getElementById("cart-counter");
 
 const displayCart = () => {
     modalContainer.innerHTML = "";
@@ -56,12 +57,14 @@ const displayCart = () => {
                 product.quanty--;
                 displayCart();
             }
+            displayCartCounter();
         });
 
         const increse = modalBody.querySelector(".quantity-btn-increse")
         increse.addEventListener("click", ()=>{
             product.quanty++;
             displayCart();
+            displayCartCounter();
         })
 
         //Boton Delete
@@ -90,4 +93,15 @@ const deleteCartProduct = (id) =>{
     console.log(foundId);
     cart.splice(foundId, 1);
     displayCart();
+    displayCartCounter();
+}
+
+const displayCartCounter = () => {
+    const cartLength = cart.reduce((acc, el)=> acc + el.quanty, 0);
+    if(cartLength > 0){
+        cartCounter.style.display = "block";
+        cartCounter.innerText = cartLength;
+    }else{
+        cartCounter.style.display = "none";
+    }
 }
