@@ -10,7 +10,7 @@ const app = express();
 
 // Configuración del cliente de MercadoPago (SDK v2)
 const client = new mercadopago.MercadoPagoConfig({
-  accessToken: "TU_ACCESS_TOKEN" // ⚠️ Reemplazá con tu access token real
+  accessToken: "APP_USR-8429076419853427-090312-250fcd57d8828359ff8a1830b039b583-2669401824" // ⚠️ Reemplazá con tu access token real
 });
 
 // Instancia para manejar preferencias
@@ -30,30 +30,36 @@ app.get("/", (req, res) => {
 // Endpoint para crear una preferencia de pago
 app.post("/create_preference", async (req, res) => {
   try {
-    const result = await preference.create({
-      body: {
-        items: [
-          {
-            title: req.body.description,
-            unit_price: Number(req.body.price),
-            quantity: Number(req.body.quantity),
-          }
-        ],
-        back_urls: {
-          success: "http://localhost:8080",
-          failure: "http://localhost:8080",
-          pending: ""
+    const body = {
+      items: [
+        {
+          title: req.body.description,
+          quantity: Number(req.body.quantity),
+          currency_id: "ARS",
+          unit_price: Number(req.body.price),
         },
-        auto_return: "approved",
-      }
-    });
+      ],
+      back_urls: {
+        success: "http://localhost:3000/success",
+        failure: "http://localhost:3000/failure",
+        pending: "http://localhost:3000/pending",
+      },
+      auto_return: "approved",
+    };
 
-    res.json({ id: result.id });
+    console.log("Creando preferencia con:", body); // 👀 Ver qué llega al backend
+
+    const result = await mercadopago.preferences.create(body);
+
+    console.log("Respuesta de MP:", result.body); // 👀 Ver si devuelve bien
+
+    res.json({ id: result.body.id });
   } catch (error) {
-    console.error("Error creando la preferencia:", error);
-    res.status(500).json({ error: "No se pudo crear la preferencia" });
+    console.error("Error creando preferencia:", error); // 👀 Acá vas a ver el motivo real
+    res.status(500).json({ error: "No se pudo crear la preferencia", details: error });
   }
 });
+
 
 // Endpoint para recibir feedback de MercadoPago
 app.get("/feedback", (req, res) => {
