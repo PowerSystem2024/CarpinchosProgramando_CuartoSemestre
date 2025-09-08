@@ -18,78 +18,72 @@ Un divertido juego inspirado en la serie “Avatar: La Leyenda de Aang”, donde
 
 ### 👥 Selección de Personajes
 
-- Zuko 🔥  
-- Katara 💧  
-- Aang 💨  
-- Toph ⛰️  
+- Zuko 🔥
+- Katara 💧
+- Aang 💨
+- Toph ⛰️
+- Sokka 🪃
+- Iroh 🔥
 
 Seleccioná tu personaje y combatí contra un oponente elegido aleatoriamente.
 
-### ⚔️ Sistema de Combate 
-- Tipos de ataque:  
-  - 👊 Puño  
-  - 🦶 Patada  
-  - 🔁 Barrida  
+### ⚔️ Sistema de Combate
+- Tipos de ataque:
+  - 👊 Puño
+  - 🦶 Patada
+  - 🦵🏻 Barrida
 
-- Lógica estilo piedra-papel-tijera:  
-  - Puño vence a Barrida  
-  - Patada vence a Puño  
-  - Barrida vence a Patada  
+- Lógica estilo piedra-papel-tijera:
+  - Puño vence a Barrida
+  - Patada vence a Puño
+  - Barrida vence a Patada
 
-- Sistema de vidas:  
-  - Ambos jugadores comienzan con 3 vidas  
+- Sistema de vidas:
+  - Ambos jugadores comienzan con 3 vidas
   - Cada ataque exitoso reduce 1 vida del oponente
 
 ### 🧠 Inteligencia del Enemigo
 
-- El enemigo elige su ataque de forma aleatoria  
+- El enemigo elige su ataque de forma aleatoria
 - El resultado de cada ronda se muestra en pantalla
 
 ### 🛎️ Final del Juego
 
-- Cuando un jugador pierde todas las vidas, se muestra un mensaje de victoria o derrota  
-- Los botones de ataque se desactivan al finalizar el juego  
+- Cuando un jugador pierde todas las vidas, se muestra un mensaje de victoria o derrota
+- Los botones de ataque se desactivan al finalizar el juego
 - Se puede reiniciar la partida con un botón
 
 
 
 ## 🛠️ Tecnologías Utilizadas
-- HTML5  
-- CSS3  
-- JavaScript (vanilla)  
+- HTML5
+- CSS3
+- JavaScript (vanilla)
 - DOM (Document Object Model)
 
 
 
 ## 🎨 Interfaz del Juego
-- Diseño responsive  
-- Personajes con imágenes redondeadas  
-- Botones de ataque interactivos  
-- Panel de mensajes dinámico  
-- Indicadores de vidas  
+- Diseño responsive
+- Personajes con imágenes redondeadas
+- Botones de ataque interactivos
+- Panel de mensajes dinámico
+- Indicadores de vidas
 - Botón de reinicio funcional
-
-
 
 ## 🕹️ ¿Cómo Jugar?
 
-1. Seleccioná tu personaje y hacé clic en el botón “Seleccionar”.  
-2. El juego asignará un oponente aleatorio.  
-3. Elegí uno de los tres ataques disponibles.  
-4. El enemigo también atacará de forma aleatoria.  
+1. Seleccioná tu personaje y hacé clic en el botón “Seleccionar”.
+2. El juego asignará un oponente aleatorio.
+3. Elegí uno de los tres ataques disponibles.
+4. El enemigo también atacará de forma aleatoria.
 5. ¡Ganás si dejás sin vidas al enemigo!
-
-
 
 ## 🎯 Objetivo
 
 Derrotar al oponente reduciendo sus vidas a 0 utilizando estrategia y suerte en el sistema de combate.
 
-
-
 **¡Que comience la batalla!**
-
-
 
 <br>
 
@@ -118,32 +112,28 @@ Derrotar al oponente reduciendo sus vidas a 0 utilizando estrategia y suerte en 
 
 ## 📚 ¿Qué es el DOM?
 
-El **Document Object Model (DOM)** es la forma en que el navegador organiza internamente las etiquetas HTML para que JavaScript pueda manipularlas dinámicamente. 
+El **Document Object Model (DOM)** es la forma en que el navegador organiza internamente las etiquetas HTML para que JavaScript pueda manipularlas dinámicamente.
 Es la representación en forma de árbol del contenido HTML. Nos permite **interactuar dinámicamente con los elementos** desde JavaScript: cambiarlos, ocultarlos, agregarles estilos o escuchar sus eventos.
 
-- `window` representa todo el navegador  
-- `document` representa solo el contenido de la página web  
+- `window` representa todo el navegador
+- `document` representa solo el contenido de la página web
 - Los botones, imágenes y textos viven dentro del `document`
 
 Podemos usar funciones llamadas **event listeners** para detectar interacciones como clics, movimientos o cambios, y ejecutar respuestas dinámicas en el juego.
 
-
 <br>
-
 
 ## 🔁 Eventos del Juego
 
 El juego usa `addEventListener` para:
 
-- Detectar clics en los botones de ataque  
-- Escuchar cuándo se selecciona un personaje  
-- Ejecutar lógica de combate y mostrar mensajes  
+- Detectar clics en los botones de ataque
+- Escuchar cuándo se selecciona un personaje
+- Ejecutar lógica de combate y mostrar mensajes
 - Controlar el reinicio del juego
-
       
        boton.addEventListener("click", funcionQueSeEjecuta);
       
-
 
 
 ## 🏷️ ¿Qué hace un `label`?
@@ -154,7 +144,6 @@ Un `<label>` se asocia a un campo de formulario (`input`). Sirve para **mejorar 
       <input type="radio" id="zuko" name="personaje">
       <label for="zuko">Zuko</label>
       
-
 
 ## 🏷️ ¿Qué es un span?
 
@@ -188,7 +177,6 @@ La función getElementById se usa en `JavaScript` para obtener un `elemento del 
 
 🔁 if, else if, else <br>
 Permite tomar decisiones. En el juego las usamos para comparar ataques y definir quién gana.
-
     
     if (ataqueJugador === ataqueEnemigo) {
     // Empate
@@ -281,9 +269,14 @@ Modal de reglas con bordes animados usando SVG en background.
 
 <br>
 
+## Variables globales
+
+Son accesibles desde cualquier parte del código. No hace falta que este dentro de una función o bloque.
+Recurrimos a variables globales para guardar valores fijos, evitar errores por cambios accidentales y para mejorar la claridad del código.
+<br>
 ## 📝 Notas Adicionales
 
-Este juego es completamente interactivo gracias al uso del DOM y los event listeners.  
+Este juego es completamente interactivo gracias al uso del DOM y los event listeners.
 Ideal para aprender cómo combinar JavaScript con interfaces dinámicas, lógica de combate y control de flujo según las decisiones del usuario.
 
 ---
