@@ -76,58 +76,62 @@ const displayCart = () => {
         });
 
         // Modal footer
-        const total = cart.reduce((acc, el) => acc + el.price * el.quanty, 0);
 
+
+        const total = cart.reduce((acc, el) => acc + el.price * el.quanty, 0);
         const modalFooter = document.createElement("div");
         modalFooter.className = "modal-footer";
-        modalFooter.innerHTML = `
-            <div class="total-price">Total: $${total}</div>
-            <button class="btn-primary" id="checkout-btn">Ir a pago</button>
-            <div id="button-checkout"></div>
-        `;
+
+        const totalPrice = document.createElement("div");
+        totalPrice.className = "total-price";
+        totalPrice.innerText = `Total: $${total}`;
+
+        const checkoutBtn = document.createElement("button");
+        checkoutBtn.className = "btn-primary";
+        checkoutBtn.id = "checkout-btn";
+        checkoutBtn.innerText = "Ir a pago";
+
+        const buttonCheckout = document.createElement("div");
+        buttonCheckout.id = "button-checkout";
+
+        modalFooter.append(totalPrice, checkoutBtn, buttonCheckout);
         modalContainer.append(modalFooter);
 
         // Inicialización de Mercado Pago (Frontend SDK)
-        const mercadopago = new MercadoPago("APP_USR-d3921181-622b-4159-a792-8ee73c4cd485", {
+        const mercadopago = new MercadoPago("APP_USR-cbd72d05-9943-4bd8-b058-e0804a07d0be", {
             locale: "es-AR",
         });
-
         const checkoutButton = modalFooter.querySelector("#checkout-btn");
 
-        checkoutButton.addEventListener("click", function () {
+        checkoutButton.addEventListener("click", async function () {
+        try{
             console.log("Botón 'Ir a pago' clickeado ✅");
-
             checkoutButton.remove(); // ocultamos el botón manual
-
             const orderData = {
+                title: "Compra de E-commerce",
                 quantity: 1,
-                description: "compra de ecommerce",
                 price: total,
             };
-
-            fetch("http://localhost:8080/create_preference", {
+            const response = await fetch("http://localhost:8080/create_preference", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(orderData),
-            })
-                .then((response) => response.json())
-                .then((preference) => {
-                    console.log("Preference creada:", preference);
-                    createCheckoutButton(preference.id);
-                })
-                .catch((error) => {
+            });
+            const preference = await response.json();
+            console.log("Preferencia recibida en frontend:", preference);
+            console.log("ID recibido:", preference.id);
+            createCheckoutButton(preference.id);
+            }catch(error) {
                     console.error("Error al crear la preferencia:", error);
-                    alert("Error al iniciar el pago");
-                });
+                };
         });
 
         function createCheckoutButton(preferenceId) {
             console.log("Inicializando Brick con preferenceId:", preferenceId);
-
             const bricksBuilder = mercadopago.bricks();
-
+            console.log("¿Existe el div 'button-checkout'?", document.getElementById("button-checkout"));
             bricksBuilder.create(
                 "wallet",
                 "button-checkout", // id del div donde se renderiza
@@ -156,9 +160,7 @@ const displayCart = () => {
         modalContainer.append(modalText);
     }
 };
-
 cartBtn.addEventListener("click", displayCart);
-
 // Función para borrar productos del carrito
 const deleteCartProduct = (id) => {
     const foundId = cart.findIndex((element) => element.id === id);
@@ -167,7 +169,6 @@ const deleteCartProduct = (id) => {
     displayCart();
     displayCartCounter();
 };
-
 // Contador del carrito
 const displayCartCounter = () => {
     const cartLength = cart.reduce((acc, el) => acc + el.quanty, 0);
