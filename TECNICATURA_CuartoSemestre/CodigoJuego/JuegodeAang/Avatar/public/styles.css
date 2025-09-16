@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Henny+Penny&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Klee+One&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Overlock+SC&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Henny+Penny&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Klee+One&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Overlock+SC&display=swap');
     body {
-        font-family: 'Overlock SC', 'Merriweather', 'Nunito Sans', 'Inter', sans-serif;
-        font-weight: bold;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        background-image: url("./assets/fondo.png");
-        background-repeat: repeat;
-        background-size: 120px 120px;
-        font-size: clamp(14px, 2vw, 20px);
-        position: relative;
-        color: #000000;
-        background-color: antiquewhite; /* Color de fondo */
-        text-shadow:
-            0 0 5px rgb(255, 255, 0),
-            0 0 10px rgb(255, 157, 0),
-            0 0 20px rgb(255, 0, 0),
+    font-family: 'Overlock SC', 'Merriweather', 'Nunito Sans', 'Inter', sans-serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-image: url("./assets/fondo.png");
+    background-repeat: repeat;
+    background-size: 120px 120px;
+    font-size: clamp(14px, 2vw, 20px);
+    position: relative;
+    color: #000000;
+    background-color: antiquewhite; /* Color de fondo */
+    text-shadow:
+        0 0 5px rgb(255, 255, 0),
+        0 0 10px rgb(255, 157, 0),
+        0 0 20px rgb(255, 0, 0),
     }
 
     h1,
@@ -24,22 +24,22 @@
     #mensajes,
     .reglas,
     #reiniciar {
-        background-color: rgba(73, 45, 2, 0.887); /* Blanco semitransparente */
-        padding: 20px;
-        width: 90%;
-        height: 80%;
-        max-width: 1000px;
-        border-radius: 18px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 1.5);
-        margin: 20px auto;
-        color: rgb(255, 224, 144);
+    background-color: rgba(73, 45, 2, 0.887); /* Blanco semitransparente */
+    padding: 15px;
+    width: 90%;
+    height: 80%;
+    max-width: 1000px;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1.5);
+    margin: 20px auto;
+    color: rgb(255, 224, 144);
     }
 
     #seleccionar-personaje,
     #seleccionar-ataque,
     #mensajes,
     #reiniciar {
-        font-size: 26px;
+    font-size: 26px;
     }
 
     h1{
@@ -47,38 +47,38 @@
     }
 
     span{
-        text-shadow: rgb(0, 0, 0) 0 5px;
+    text-shadow: rgb(0, 0, 0) 0 5px;
     }
 
     #seleccionar-personaje {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
     }
 
     .contenedor-principal {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     }
 
     .personajes-container {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-bottom: 20px;
-        flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
     }
 
     .personaje {
-        text-align: center;
+    text-align: center;
     }
 
     .personaje:has(input[type="radio"]:checked) {
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
-                0 0 40px rgba(255, 140, 0, 0.6);
+            0 0 40px rgba(255, 140, 0, 0.6);
     transform: scale(1.1);
     border-radius: 20px;
     }
@@ -90,32 +90,32 @@
     }
 
     .personaje img {
-        width: 160px;
-        max-width: 100%;
-        height: auto;
-        border-radius: 20px;
+    width: 160px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
     }
 
     .boton-container {
-        margin-top: 20px;
+    margin-top: 20px;
     }
 
     button, .boton-reglas {
-        background-color: #cc8118;
-        color: rgb(103, 74, 48);
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: clamp(14px, 1.8vw, 20px);
-        padding: 0.6em 1.2em;
-        font-weight: bolder;
+    background-color: #cc8118;
+    color: rgb(103, 74, 48);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: clamp(14px, 1.8vw, 20px);
+    padding: 0.6em 1.2em;
+    font-weight: bolder;
     }
 
     button:hover, .boton-reglas:hover{
-        transform: scale(1.2);
-        color: rgb(186, 165, 3);
-        background-color: rgb(26, 19, 0);
-        border-radius: 12px;
+    transform: scale(1.2);
+    color: rgb(186, 165, 3);
+    background-color: rgb(26, 19, 0);
+    border-radius: 12px;
     }
 
     button:disabled {
@@ -134,22 +134,22 @@
     }
 
     .icon {
-        margin-right: 10px;
-        filter: drop-shadow(2px 2px 5px rgba(255, 255, 250, 2));
-        background-color: rgba(53, 47, 1, 0.169);
-        border-radius: 10px; /* Bordes redondeados */
-        padding: 5px; /* Espaciado interno */
+    margin-right: 10px;
+    filter: drop-shadow(2px 2px 5px rgba(255, 255, 250, 2));
+    background-color: rgba(53, 47, 1, 0.169);
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interno */
     }
 
     .reglas{
-        display: none;
-        background-color: rgb(103, 74, 48);
-        color: white;
-        text-align: left;
+    display: none;
+    background-color: rgb(103, 74, 48);
+    color: white;
+    text-align: left;
     }
 
-/* Modal */
-.modal {
+    /* Modal */
+    .modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -160,9 +160,9 @@
     background-color: rgba(50, 50, 50, 0.6); /* fondo gris transparente */
     justify-content: center;
     align-items: center;
-}
+    }
 
-.modal-contenido {
+    .modal-contenido {
     position: relative;
     background-color: rgb(103, 74, 48);
     border-radius: 12px;
@@ -175,10 +175,10 @@
     font-size: clamp(16px, 2vw, 22px);
     padding: 20px;
     overflow: hidden;
-}
+    }
 
-/* Ondas arriba */
-.modal-contenido::before {
+    /* Ondas arriba */
+    .modal-contenido::before {
     content: "";
     position: absolute;
     top: 10px;
@@ -191,10 +191,10 @@
     pointer-events: none;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-}
+    }
 
-/* Ondas abajo */
-.modal-contenido::after {
+    /* Ondas abajo */
+    .modal-contenido::after {
     content: "";
     position: absolute;
     bottom: 10px;
@@ -207,10 +207,10 @@
     pointer-events: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-}
+    }
 
-/* Ondas izquierda */
-.modal-contenido > .border-left {
+    /* Ondas izquierda */
+    .modal-contenido > .border-left {
     position: absolute;
     top: 30px;
     bottom: 30px;
@@ -222,10 +222,10 @@
     pointer-events: none;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-}
+    }
 
-/* Ondas derecha */
-.modal-contenido > .border-right {
+    /* Ondas derecha */
+    .modal-contenido > .border-right {
     position: absolute;
     top: 30px;
     bottom: 30px;
@@ -237,10 +237,9 @@
     pointer-events: none;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-}
+    }
 
-
-.cerrar-modal {
+    .cerrar-modal {
     position: absolute;
     top: 3%;
     right: 4%;
@@ -251,84 +250,190 @@
     transition: color 0.3s, transform 0.3s; /* para animar suavemente */
 
     &:hover {
-        color: rgb(172, 105, 11);
-        transform: scale(1.5); /* sin el % y usando transform */
-        transition: color 0.1s, transform 1s;
+    color: rgb(172, 105, 11);
+    transform: scale(1.5); /* sin el % y usando transform */
+    transition: color 0.1s, transform 1s;
     }
-}
+    }
 
-.modal-contenido h4 {
+    .modal-contenido h4 {
     margin-top: 0;
-}
+    }
 
-/* Tablets */
-@media (max-width: 1024px) {
+    .visual-combate {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    }
+
+    .personaje-visual {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s ease;
+    }
+
+    .personaje-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .personaje-visual.aparecer {
+    opacity: 1;
+    transform: scale(1);
+    }
+
+    .ganador {
+    border: 3px solid gold;
+    background-color: #fff8dc;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    transition: all 0.3s ease;
+    }
+
+    .emoji-resultado {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 2rem;
+    pointer-events: none;
+    }
+
+    .perdedor {
+    opacity: 0.5;
+    transform: scale(0.95);
+    transition: all 0.5s ease;
+    }
+
+    /* Efecto de brillo detrás del ganador */
+    .ganador-efecto-brillo {
+    position: relative;
+    z-index: 1; /* Asegura que el brillo no tape la imagen */
+    display: inline-block;
+    }
+
+    .ganador-efecto-brillo::before {
+    content: '';
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    width: 100%;
+    height: 95%;
+    border-radius: 10%;
+    background: radial-gradient(circle, rgba(255, 223, 0, 0.7) 10%, rgba(255, 255, 0, 0.1) 70%);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
+                0 0 50px rgba(255, 140, 0, 0.6);
+    z-index: -1;
+    animation: brillo-animado 2s infinite;
+    }
+
+    /* Animación del brillo */
+    @keyframes brillo-animado {
+    0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+    }
+    50% {
+    transform: scale(1);
+    opacity: 1;
+    }
+    100% {
+    transform: scale(0.5);
+    opacity: 0.5;
+    }
+    }
+
+    /* Efecto de emoji ganador aumentando */
+    .ganador-emoji {
+    animation: crecer-emoji 2s infinite;
+    }
+
+    /* Animación de crecimiento para el emoji */
+    @keyframes crecer-emoji {
+    0% {
+    transform: scale(1);
+    }
+    50% {
+    transform: scale(1.5);
+    }
+    100% {
+    transform: scale(1);
+    }
+    }
+
+    /* Tablets */
+    @media (max-width: 1024px) {
     .personaje {
-        flex: 1 1 45%; /* dos columnas */
-        max-width: 45%;
+    flex: 1 1 45%; /* dos columnas */
+    max-width: 45%;
     }
     .personajes-container {
-        gap: 20px;
+    gap: 20px;
     }
-}
+    }
 
-/* Celulares */
-@media (max-width: 600px) {
+    /* Celulares */
+    @media (max-width: 600px) {
     body {
-        font-size: 14px; /* Base más pequeña */
+    font-size: 14px; /* Base más pequeña */
     }
 
     h1, h2 {
-        font-size: 22px;
-        line-height: 1.2;
+    font-size: 22px;
+    line-height: 1.2;
     }
 
     #seleccionar-personaje,
     #seleccionar-ataque,
     #mensajes,
     #reiniciar {
-        width: 95%;
-        padding: 12px;
-        font-size: 18px;
+    width: 95%;
+    padding: 12px;
+    font-size: 18px;
     }
 
     .personajes-container {
-        flex-direction: column;
-        gap: 16px;
+    flex-direction: column;
+    gap: 16px;
     }
 
     .personaje img {
-        width: 120px;
+    width: 120px;
     }
 
     .personaje label {
-        display: block;
-        font-size: 16px;
-        margin-top: 4px;
+    display: block;
+    font-size: 16px;
+    margin-top: 4px;
     }
 
     button {
-        font-size: 16px;
-        padding: 8px 16px;
-        margin-top: 8px;
+    font-size: 16px;
+    padding: 8px 16px;
+    margin-top: 8px;
     }
 
     #mensajes {
-        font-size: 16px;
-        margin-top: 10px;
-        line-height: 1.4;
-        padding: 8px;
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 1.4;
+    padding: 8px;
     }
 
     /* Modal optimizado */
     .modal-contenido {
-        width: 95%;
-        font-size: 16px;
-        padding: 30px;
+    width: 95%;
+    font-size: 16px;
+    padding: 30px;
     }
 
     .icon{
-        width: 30px;
-        height: 30px;
+    width: 30px;
+    height: 30px;
     }
-}
+    }

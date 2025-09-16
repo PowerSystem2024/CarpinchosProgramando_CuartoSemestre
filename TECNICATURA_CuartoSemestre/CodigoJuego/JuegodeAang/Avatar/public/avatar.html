@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Henny+Penny&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Klee+One&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Avatar: La Leyenda de Aang</title>
 
-
 </head>
 <body>
     <div>
@@ -60,75 +59,44 @@
         </div>
     </div>
 
+    <!-- Sección de selección de personaje -->
     <section id="seleccionar-personaje">
         <div class="contenedor-principal">
-            <h2>Selecciona tu personaje</h2>
-
-            <div class="personajes-container">
-                <div class="personaje">
-                    <img src="assets/Zuko.jpg" alt="Zuko">
-                    <br>
-                    <input type="radio" name="personaje" id="zuko"/>
-                    <label for="zuko">Zuko</label>
-                </div>
-                <div class="personaje">
-                    <img src="assets/Katara.jpg" alt="Katara">
-                    <br>
-                    <input type="radio" name="personaje" id="katara"/>
-                    <label for="katara">Katara</label>
-                </div>
-                <div class="personaje">
-                    <img src="assets/Aang.jpg" alt="Aang"/>
-                    <br>
-                    <input type= "radio" name="personaje" id="aang"/>
-                    <label for="aang">Aang</label>
-                </div>
-                <div class="personaje">
-                    <img src="assets/Toph.jpg" alt="toph">
-                    <br>
-                    <input type="radio" name="personaje" id="toph"/>
-                    <label for="toph">Toph</label>
-                </div>
-                <!-- Dentro de la sección de selección de personajes, después de Toph -->
-                <div class="personaje">
-                    <img src="assets/Sokka.png" alt="Sokka">
-                    <br>
-                    <input type="radio" name="personaje" id="sokka"/>
-                    <label for="sokka">Sokka</label>
-                </div>
-                <div class="personaje">
-                    <img src="assets/Iroh.png" alt="Iroh">
-                    <br>
-                    <input type="radio" name="personaje" id="iroh"/>
-                    <label for="iroh">Iroh</label>
-                </div>
-            </div>
-            <div class="boton-container">
-                <button id="boton-personaje">Seleccionar</button>
-            </div>
+        <h2>Selecciona tu personaje</h2>
+        <div id="personajes-container" class="personajes-container"></div>
+        <div class="boton-container">
+            <button id="boton-personaje">Seleccionar</button>
+        </div>
         </div>
     </section>
 
+    <!-- Sección de ataque -->
     <section id="seleccionar-ataque">
         <p>Tu personaje <span id="personaje-jugador"></span> tiene <span id="vida-jugador">3</span> vidas</p>
         <p>El personaje <span id="personaje-enemigo"></span> de tu enemigo tiene <span id="vida-enemigo">3</span> vidas</p>
+        <div class="visual-combate">
+            <div id="jugador-visual" class="personaje-visual"></div>
+            <div id="enemigo-visual" class="personaje-visual"></div>
+        </div>
         <h2>Elige tu ataque:</h2>
         <p>
-            <button id="boton-punio">Puño 🤜🏻</button>
-            <button id="boton-patada">Patada🦵🏻</button>
-            <button id="boton-barrida">Barrida 🦶🏻</button>
+        <button id="boton-punio">Puño 🤜🏻</button>
+        <button id="boton-patada">Patada 🦵🏻</button>
+        <button id="boton-barrida">Barrida 🦶🏻</button>
         </p>
     </section>
 
+    <!-- Sección de mensajes -->
     <section id="mensajes">
         <p></p>
     </section>
 
+    <!-- Sección de reinicio -->
     <section id="reiniciar">
-        <button id="boton-reiniciar" >Reiniciar</button>
+        <button id="boton-reiniciar">Reiniciar</button>
     </section>
 
+    <!-- Script principal -->
     <script src="avatar.js"></script>
-
-</body>
+    </body>
 </html>
