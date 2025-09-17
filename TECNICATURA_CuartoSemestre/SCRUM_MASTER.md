@@ -9,8 +9,9 @@
 | 25/08 al 31/08               | Aguilar, Melina          | 🟢 Clases, captura, documentacion, reuniones   |
 | 01/09 al 07/09               | Quiroz, Ezequiel            | 🟢 Clases, captura, documentacion, reuniones  |
 | 08/09 al 14/09               | Aguilera, Mariana      | 🟢 Clases, captura, documentacion, reuniones |
-| 15/09 al 21/09               | Mercado Nicolás           | 🟡 |
-| 22/09 al 28/09               | Ríos Garín, Ana Paula            | 🟡 |
+| 15/09 al 21/09               | Ríos Garín, Ana Paula          | 🟡 |
+| 22/09 al 28/09               | Mercado, Nicolás            | 🟡 |
+
 
 
 
