@@ -18,13 +18,14 @@
 
 | 📅 Semana                     | 👤 Scrum Master           | 🟢: Realizado 🟡: Pendiente 🔴: No realizado |
 |------------------------------|---------------------------|------------------------------------------------|
-| 29/09 al 05/10               | Aguilar, Melina            | 🟡  |
+| 29/09 al 05/10               | Aguilar, Melina            |  🟢 Clases, captura, documentacion, reuniones |
 | 06/10 al 12/10               | Quiroz, Ezequiel           | 🟡   |
 | 13/10 al 19/10               | Atim, Mercedes          | 🟡   |
 | 20/10 al 26/10               | Lanatta, Wanda            | 🟡  |
 | 27/10 al 02/11               | Aguilera, Mariana      | 🟡 |
 | 03/11 al 09/11               | Mercado, Nicolás          | 🟡 |
 | 10/11 al 16/11               | Ríos Garín, Ana Paula            | 🟡 |
+
 
 
 
