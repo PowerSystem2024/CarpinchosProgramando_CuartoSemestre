@@ -10,7 +10,7 @@
 | 01/09 al 07/09               | Quiroz, Ezequiel            | 🟢 Clases, captura, documentacion, reuniones  |
 | 08/09 al 14/09               | Aguilera, Mariana      | 🟢 Clases, captura, documentacion, reuniones |
 | 15/09 al 21/09               | Ríos Garín, Ana Paula          | 🟢 Clases, captura, documentacion, reuniones |
-| 22/09 al 28/09               | Mercado, Nicolás            | 🟡 |
+| 22/09 al 28/09               | Mercado, Nicolás            | 🔴 No subió la clase de JavaScript |
 
 ---
 
@@ -25,6 +25,7 @@
 | 27/10 al 02/11               | Aguilera, Mariana      | 🟡 |
 | 03/11 al 09/11               | Mercado, Nicolás          | 🟡 |
 | 10/11 al 16/11               | Ríos Garín, Ana Paula            | 🟡 |
+
 
 
 
