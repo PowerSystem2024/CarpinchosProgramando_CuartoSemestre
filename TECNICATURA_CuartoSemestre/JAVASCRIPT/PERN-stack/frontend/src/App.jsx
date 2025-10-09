@@ -19,7 +19,7 @@ function App() {
         <Route path='/perfil' element={<ProfilePage />} />
         <Route path='/tareas' element={<TareasPage />} />
         <Route path='/tareas/crear' element={<TareaFormPage />} />
-        <Route path='/tareas/editar/:id' element={<TareasFormPage />} />
+        <Route path='/tareas/editar/:id' element={<TareaFormPage />} />
     </Routes>
   )
 }
