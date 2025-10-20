@@ -3,13 +3,21 @@ import morgan from "morgan";
 import tareasRoutes from "./router/tareas.routes.js";
 import authRoutes from "./router/auth.routes.js";
 import cookieParser from "cookie-parser"
+import cors from "cors";
 
 const app = express();
-//middlewares
+
+//Middlewares
 app.use(morgan("dev"));
+app.use(cors(
+    {
+        origin: "http://localhost:5175",
+        credentials: true
+    }
+));
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => res.json({message: "Bienvenidos a mi proyecto"}));
 
