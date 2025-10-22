@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { PublicRoutes, PrivateRoutes } from "./navigation";
+import { PublicRoutes, PrivateRoutes } from "./navigation.jsx";
 import Container from "../ui/Container";
 import { useAuth } from "../../context/AuthContext";
 

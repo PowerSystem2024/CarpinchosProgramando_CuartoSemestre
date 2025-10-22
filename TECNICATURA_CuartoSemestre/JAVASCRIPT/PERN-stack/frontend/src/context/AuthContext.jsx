@@ -1,118 +1,100 @@
-import { createContext, useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import { createContext, useState, useContext ,useEffect } from "react";
+import Cookies from "js-cookie";
+import axios from "../api/axios";
 
 export const AuthContext = createContext();
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within AuthProvider");
   }
   return context;
 };
 
-export const AuthProvider = ({ children }) => {
+export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [errors, setErrors] = useState([]);
+  const [isAuth, setIsAuth] = useState(false);
+  const [errors, setErrors] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Register user
-  const signup = async (user) => {
+  const signin = async (data) => {
     try {
-      const res = await axios.post('http://localhost:3001/api/signup', user, {
-        withCredentials: true,
-      });
+      const res = await axios.post("/signin", data);
+
       setUser(res.data);
-      setIsAuthenticated(true);
+      setIsAuth(true);
+      return res.data;
     } catch (error) {
-      console.error(error);
-      if (error.response) {
-        setErrors(error.response.data);
+      console.log(error);
+      if (Array.isArray(error.response.data)) {
+        return setErrors(error.response.data);
       }
+      setErrors([error.response.data.message]);
     }
   };
 
-  // Login user
-  const signin = async (user) => {
+  const signup = async (data) => {
     try {
-      const res = await axios.post('http://localhost:3001/api/signin', user, {
-        withCredentials: true,
-      });
+      const res = await axios.post("/signup", data);
       setUser(res.data);
-      setIsAuthenticated(true);
+      setIsAuth(true);
+      return res.data;
     } catch (error) {
-      console.error(error);
-      if (error.response) {
-        setErrors(error.response.data);
+      console.log(error);
+      if (Array.isArray(error.response.data)) {
+        return setErrors(error.response.data);
       }
+      setErrors([error.response.data.message]);
     }
   };
 
-  // Logout user
-  const logout = async () => {
-    try {
-      await axios.post('http://localhost:3001/api/logout', {}, {
-        withCredentials: true,
-      });
-      setUser(null);
-      setIsAuthenticated(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const signout = async () => {
+  const signout = async() => {
     const res = await axios.post("/signout");
     setUser(null);
-    setIsAuthenticated(false);
+    setIsAuth(false);
     return res.data;
-  };
-  // Clear errors
-  useEffect(() => {
-    if (errors.length > 0) {
-      const timer = setTimeout(() => {
-        setErrors([]);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [errors]);
+  }
 
-  // Check if user is logged in on mount
-  useEffect(() => {
-    async function checkLogin() {
-      try {
-        const res = await axios.get('http://localhost:3001/api/profile', {
-          withCredentials: true,
-        });
-        if (res.data) {
-          setUser(res.data);
-          setIsAuthenticated(true);
+    useEffect(() => {
+      setLoading(true);
+        if (Cookies.get("token")) {
+            axios.get("/profile").then((res) => {
+                setUser(res.data);
+                setIsAuth(true);
+                setLoading(false);
+            }).catch((error) => {
+                setUser(null);
+                setIsAuth(false);
+                setLoading(false);
+                console.log(error);
+            });
         }
-      } catch (error) {
-        setIsAuthenticated(false);
-        setUser(null);
-      } finally {
         setLoading(false);
-      }
-    }
-    checkLogin();
-  }, []);
+    }, []);
 
+    useEffect(() => {
+      const timeout = setTimeout(() => {
+        setErrors(null);
+      }, 4000);
+      return () => {
+        clearTimeout(timeout);
+      };
+    }, [errors]);
   return (
     <AuthContext.Provider
       value={{
+        user,
+        isAuth,
+        errors,
         signup,
+        setUser,
         signin,
-        logout,
         signout,
         loading,
-        user,
-        isAuthenticated,
-        errors,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
-};
+}

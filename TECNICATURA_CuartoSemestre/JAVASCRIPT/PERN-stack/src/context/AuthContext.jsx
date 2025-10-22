@@ -37,7 +37,7 @@ export function AuthProvider ({children}) {
     setIsAuth,
     errors,
     setErrors,
-    signup, // ← AGREGAR signup al value
+    signup 
   }}>
     {children}
   </AuthContext.Provider>
