@@ -2,7 +2,451 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-color: black;
+/* Variables CSS con colores del stack PERN */
+:root {
+  /* PostgreSQL - Azul característico */
+  --postgresql-color: #336791;
+  --postgresql-light: #4a86c4;
+  --postgresql-dark: #2c5a7f;
+  
+  /* Express.js - Gris con acento */
+  --express-color: #000000;
+  --express-light: #404040;
+  --express-accent: #68A063;
+  
+  /* React.js - Azul cian */
+  --react-color: #61dafb;
+  --react-light: #88e5ff;
+  --react-dark: #2ac3e6;
+  
+  /* Node.js - Verde */
+  --nodejs-color: #339933;
+  --nodejs-light: #4cb64c;
+  --nodejs-dark: #2a7a2a;
+  
+  /* Colores base derivados del stack */
+  --primary-color: var(--postgresql-color);
+  --secondary-color: var(--nodejs-color);
+  --accent-color: var(--react-color);
+  --dark-bg: #0f172a;
+  --darker-bg: #0a0f1c;
+  --card-bg: #1e293b;
+  --text-light: #f8fafc;
+  --text-muted: #94a3b8;
+  --success-color: var(--nodejs-color);
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+}
+
+/* Estilos base */
+body {
+  background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+  color: var(--text-light);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Utilidades para páginas de autenticación */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  max-width: 28rem;
+  width: 100;
+}
+
+/* Texto superior - estilo minimalista */
+.upper-text {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Texto principal destacado */
+.main-headline {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--postgresql-color), var(--react-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0.5rem 0;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* Línea decorativa sutil */
+.decorative-line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(to right, var(--postgresql-color), var(--react-color));
+  margin: 1rem auto;
+  border-radius: 1px;
+}
+
+/* Estilos para formularios mejorados */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--react-color);
+  box-shadow: 0 0 0 2px rgba(97, 218, 251, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Estilos para botones mejorados */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--postgresql-color), var(--postgresql-light));
   color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--postgresql-light), var(--postgresql-color));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(51, 103, 145, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--nodejs-color), var(--nodejs-light));
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--nodejs-light), var(--nodejs-color));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(51, 153, 51, 0.3);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--react-color), var(--react-light));
+  color: #1a365d;
+}
+
+.btn-accent:hover {
+  background: linear-gradient(135deg, var(--react-light), var(--react-color));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(97, 218, 251, 0.3);
+}
+
+/* Estilos para tarjetas mejoradas */
+.card {
+  background: linear-gradient(145deg, var(--card-bg), #1e293b);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--postgresql-color), var(--react-color), var(--nodejs-color));
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Glass effect mejorado */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para páginas de contenido */
+.content-page {
+  min-height: calc(100vh - 4rem);
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+}
+
+.content-card {
+  background: linear-gradient(145deg, var(--card-bg), #1e293b);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para encabezados de contenido */
+.content-header {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--postgresql-color), var(--react-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.content-subheader {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--react-color);
+  margin: 1.5rem 0 1rem 0;
+  border-left: 3px solid var(--react-color);
+  padding-left: 1rem;
+}
+
+.content-text {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+/* Estilos para enlaces */
+a {
+  color: var(--react-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--react-light);
+}
+
+/* Estilos para errores */
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.field-error {
+  color: #fca5a5;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Estilos para la página 404 */
+.not-found-container {
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+  padding: 2rem 1rem;
+}
+
+.not-found-title {
+  font-size: 6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--postgresql-color), var(--react-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.not-found-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Badges de tecnología */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0.25rem;
+}
+
+.badge-postgresql {
+  background: rgba(51, 103, 145, 0.2);
+  color: var(--postgresql-color);
+  border: 1px solid var(--postgresql-color);
+}
+
+.badge-express {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--express-accent);
+  border: 1px solid var(--express-color);
+}
+
+.badge-react {
+  background: rgba(97, 218, 251, 0.2);
+  color: var(--react-color);
+  border: 1px solid var(--react-color);
+}
+
+.badge-nodejs {
+  background: rgba(51, 153, 51, 0.2);
+  color: var(--nodejs-color);
+  border: 1px solid var(--nodejs-color);
+}
+
+/* Personalización de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--postgresql-color), var(--nodejs-color));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--postgresql-light), var(--nodejs-light));
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Estilos para el modo responsivo */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  .main-headline {
+    font-size: 2rem;
+  }
+  
+  .content-header {
+    font-size: 2rem;
+  }
+  
+  .content-subheader {
+    font-size: 1.25rem;
+  }
+  
+  .content-text {
+    font-size: 1rem;
+  }
+  
+  .not-found-title {
+    font-size: 4rem;
+  }
+  
+  .not-found-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Utilidades adicionales */
+.text-gradient-pern {
+  background: linear-gradient(135deg, var(--postgresql-color), var(--react-color), var(--nodejs-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-glow-pern {
+  box-shadow: 0 0 30px rgba(97, 218, 251, 0.15);
+}
+
+/* Espaciado consistente */
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
 }
