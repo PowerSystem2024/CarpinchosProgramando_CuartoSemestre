@@ -1,4 +1,4 @@
-![Programación IV 2025](https://github.com/MerAtim/CuartoSemestreUTN/blob/main/Assets/PROGRAMACI%C3%93N%20IV%202025.gif?raw=true)
+![Programación IV 2025](https://raw.githack.com/MerAtim/CuartoSemestreUTN/main/Assets/PROGRAMACI%C3%93N%20IV%202025.gif)
 
 ## Integrantes del Grupo
 
