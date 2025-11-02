@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #151515;
+}
+
+.base{
+    background: #cacaca;
+    width: 20vmin;
+    border-radius: 27vmin;
+    box-shadow: 0 6vmin 0.15vmin 0vmin #777, 0 4vmin 0.15vmin 0vmin #777, 0 2vmin 0.15vmin 0vmin #777;
+    padding: 0vmin 2vmin 2vmin 2vmin;
+    z-index: 1;
+    transform: rotateX(60deg) rotateZ(0deg);
+    margin-top: -4.5vmin;
+    height: 22vmin;
+}
+
+button#activate {
+    background: #d60505;
+    border: 0;
+    width: 20vmin;
+    height: 19vmin;
+    border-radius: 100%;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    z-index: 2;
+    box-shadow: 0 4vmin 0.15vmin 0vmin #af0000, 0 2vmin 0.15vmin  #af0000;
+    top: -2.5vmin;
+    border: 0.5vmin solid #af0000a1;
+    transition: all 0.25s ease 0s;
+}
+
+button#activate:hover{
+    box-shadow: 0 3vmin 0.15vmin 0vmin #af0000, 0 1vmin 0.15vmin 0vmin #af0000;
+    top: -1.5vmin;
+    transition: all 0.5s ease 0s;
+}
+
+button#activate:active, button#activate.pushed {
+    box-shadow: 0 3vmin 0.15vmin 0vmin #af0000, 0 1vmin 0.15vmin 0vmin #af0000;
+    top: 0.5vmin;
+    transition: all 0 25s ease 0s;
+}
+
+button#activate.pushed {
+    box-shadow: 0 0 20px 10px #ff3c3c, 0 0 100px 50px #ff2828;
+    background: #ff0000;
+    border-bottom: 3px solid #00000020;
+}
+
+box {
+    transform: rotateX(-25deg) rotateY(45deg) rotateZ(0deg) rotate3d(1, 0, 0, 90deg);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    width: 45vmin;
+    position: absolute;
+    z-index: 5;
+    margin-top: 27vmin;
+    transition: transform 1s ease 0s;
+    cursor: pointer;
+    height: 45vmin;
+    margin-left: -32vmin;
+}
+
+.box.opened {
+    transform: rotateX(-35deg) rotateY(45deg) rotateZ(0deg) rotate3d(1, 0, 0, 180deg);
+}
+
+.box div {
+    position: absolute;
+    width: 45vmin;
+    height: 45vmin;
+    background: #00bcd47d;
+    opacity: 0.5;
+    opacity: 0.5;
+    border: 3px solid #00a4b9;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow:  0 0 3px 0 #00bcd48a;
+}
+
+.box > div:nth-child(1) {
+    opacity: 0;
+}
+
+.box > div:nth-child(2){
+    transform: rotateX(90deg) translate(0px, 5vmin, 5vmin);
+    height: 10vmin;
+}
+.box > div:nth-child(3){
+    transform: rotateX(0deg) translate(0, 0, 10vmin);
+}
+.box > div:nth-child(4){
+    transform: rotateX(270deg) translate3d(0px, -5vmin, 40vmin);
+    height: 10vmin;
+}
+.box > div:nth-child(5){
+    transform: rotateY(-90deg) translate3d(5vmin, 0vmin, 40vmin);
+    width: 10vmin;
+}
+.box > div:nth-child(6){
+    transform: rotateY(-90deg) translate3d(5vmin, 0vmin, 5vmin);
+    width: 10vmin;
+}
+.grid {
+    background: repeating-linear-gradient(30deg, rgba(255,255,255,0) 0, rgba(255,255,255,0) 49px, rgb(255 255 255 / 10%) 50px, rgb(0 0 0 / 30%) 51px, rgba(255, 255, 255, 0) 55px), repeating-linear-gradient(150deg, rgba(255,255,255,0) 0, rgba(255,255,255,0) 49px, rgb(255 255 255 / 10%) 50px, rgb(0 0 0 / 30%) 51px, rgba(255, 255, 255, 0) 55px);
+    position: fixed;
+    width: 200vw;
+    height: 150vh;
+}
+
+.warning {
+    position: absolute;
+    z-index: 0;
+    width: 45vmin;
+    height: 45vmin;
+    background: repeating-linear-gradient(-45deg, black, black 3vmin, yellow 3vmin, yellow 6vmin);
+    transform: rotateX(-35deg) rotateY(45deg) rotateZ(0deg) rotate3d(1, 0, 0, 90deg);
+    box-shadow: 0 0 0 3vmin #af0000;
+}
