@@ -5,59 +5,58 @@ var panel = document.getElementById("panel");
 var turnOff = document.getElementById("turn-off");
 var turnOffHor = document.getElementById("closing");
 var detonate = document.getElementById("detonate");
-alarm.volume = 0.50;
-
 var time = document.getElementById("time");
-function showCountDown(){
+var abort = document.getElementById("abort");
+var cover = document.getElementById("cover");
+var btn = document.getElementById("activate");
+var reload = document.getElementById("reload");
+var mute = document.getElementById("mute");
+
+alarm.volume = 0.5;
+
+function showCountDown() {
     time.innerText = time.innerText - 1;
-    if (time.innerText == 0){
-    clearInterval(theCount);
-    time.classList.add("crono");
-    abort.classList.add("hide");
-    detonate.classList.add("show");
-    setTimeout(function (){
-        turnOff.classList.add("close");
-        turnOffHor.classList.add("close");
-        reload.classList.add("show");
-        alarm.pause();
-        alarm2.play();
-    }, 1500);
-   }
+    if (time.innerText == 0) {
+        clearInterval(theCount);
+        time.classList.add("crono");
+        abort.classList.add("hide");
+        detonate.classList.add("show");
+        setTimeout(function () {
+            turnOff.classList.add("close");
+            turnOffHor.classList.add("close");
+            document.getElementById("restart").classList.add("show");
+            alarm.pause();
+            alarm2.play();
+        }, 1500);
+    }
 }
 
-var cover = document.getElementById("cover");
-cover.addEventListener("click", function (){
-    if(this.className == "box") this.classList.add("opened")
-    else this.classList.remove("opened");   
+cover.addEventListener("click", function () {
+    if (this.classList.contains("opened")) this.classList.remove("opened");
+    else this.classList.add("opened");
 });
 
-var btn = document.getElementById("activate");
-activate.addEventListener("click", function (){
+btn.addEventListener("click", function () {
     this.classList.add("pushed");
-    alarm.onload();
-    alarm.currentTime = 10.1;
+    alarm.currentTime = 0;
     alarm.play();
-    setTimeout(function (){
+    setTimeout(function () {
         panel.classList.add("show");
         theCount = setInterval(showCountDown, 1000);
-        alarm.onload();
         alarm.play();
     }, 500);
 });
 
-var abort = document.getElementById("abort");
-abort.addEventListener("click", function (){
+abort.addEventListener("click", function () {
     btn.classList.remove("pushed");
     panel.classList.remove("show");
     clearInterval(theCount);
     time.innerText = 9;
     alarm.pause();
-    alarm.currentTime = 10;
-    alarm.load();
+    alarm.currentTime = 0;
 });
 
-var reload = document.getElementById("restart");
-reload.addEventListener("click", function (){
+reload.addEventListener("click", function () {
     panel.classList.remove("show");
     turnOff.classList.remove("close");
     turnOffHor.classList.remove("close");
@@ -65,21 +64,20 @@ reload.addEventListener("click", function (){
     detonate.classList.remove("show");
     cover.classList.remove("opened");
     btn.classList.remove("pushed");
-    this.classList.remove("show");
+    document.getElementById("restart").classList.remove("show");
     time.classList.remove("crono");
     time.innerText = 9;
-
 });
 
-setTimeout(function (){
+setTimeout(function () {
     cover.classList.remove("opened");
 }, 100);
 
-var mute = document.getElementById("mute");
-mute.addEventListener("click", function (){
-    if (this.className == "muted"){
+mute.addEventListener("click", function () {
+    if (this.classList.contains("muted")) {
         alarm.muted = false;
-    } else{
+        this.classList.remove("muted");
+    } else {
         alarm.muted = true;
         this.classList.add("muted");
     }
