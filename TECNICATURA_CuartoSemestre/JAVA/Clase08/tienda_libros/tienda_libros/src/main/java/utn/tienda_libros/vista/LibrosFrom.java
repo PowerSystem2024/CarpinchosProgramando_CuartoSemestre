@@ -1,0 +1,88 @@
+package utn.tienda_libros.vista;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import utn.tienda_libros.servicio.LibroServicio;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+
+@Component
+public class LibroFrom extends JFrame {
+    LibroServicio libroServicio;
+    private JPanel panel;
+    private JTable tablaLibros;
+    private DefaultTableModel tablaModeloLibros;
+
+    @Autowired
+    public LibroFrom(LibroServicio libroServicio){
+        this.libroServicio = libroServicio;
+        iniciarForma();
+    }
+
+    private void iniciarForma(){
+    setContentPane(panel);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setVisible(true);
+    setSize(900, 700);
+    // Para obtener las dimensiones de la ventana
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension tamanioPantalla = toolkit.getScreenSize();
+        int x = (tamanioPantalla.width - getWidth()/2);
+        int y = (tamanioPantalla.height - getHeight()/2);
+        setLocation(x, y);
+    }
+
+    private void createUIComponents(){
+        this.tablaModeloLibros = new DefaultTableModel(0, 5);
+        String[] cabecera = {"Id", "Libro", "Autor", "Precio", "Existencias"};
+        this.tablaModeloLibros.setColumnIdentifiers(cabecera);
+        // Instanciar el obejto de JTable
+        this.tablaLibros = new JTable(tablaModeloLibros);
+        listarLibros();
+    }
+
+    private void listarLibros(){
+        // Limpiar la tabla
+        tablaModeloLibros.setRowCount(0);
+        //Obtener los libros de la BD
+        var libros = libroServicio.listarLibros();
+        // Iteramos cada libro
+        libros.forEach((libro) -> { // Funcion Lambda
+            //Creamos cada registro para agregarlos a la tabla
+            Object [] renglonLibro = {
+                    libro.getIdLibro(),
+                    libro.getNombreLibro(),
+                    libro.getAutor(),
+                    libro.getPrecio(),
+                    libro.getExistencias()
+            };
+            this.tablaModeloLibros.addRow(renglonLibro);
+        });
+    }
+}
+   
+    // <editor-fold defaultstate="collapsed" desc=" Generated Code ">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+        pack();
+    }
+    // </editor-fold>//GEN-END:initComponents
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
+
+}
