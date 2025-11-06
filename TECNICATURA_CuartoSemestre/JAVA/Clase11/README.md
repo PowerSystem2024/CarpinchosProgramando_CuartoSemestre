@@ -1,30 +1,29 @@
-
 <div align="center">
-# ToDo-API
+# Gestor de Tareas - API REST
 <br>
 <img src="https://w7.pngwing.com/pngs/972/511/png-transparent-todo-sketch-note-list-tasks-thumbnail.png" alt="Imagen de ToDo">
-<h3>Este Repositorio contiene una Página para la Gestión de Tareas - ToDo con Spring Boot.</h3>
+<h3>Sistema Web de Gestión de Tareas desarrollado con Spring Boot</h3>
 
 </div>
 
-<h4>Pagina creada donde utilizamos HTML, CSS y JavaScript en la Web, para el consumo de la API creada con Java y utilizando el Framework de Spring y su herramienta de Spring Boot</h4>
+<h4>Aplicación web desarrollada con HTML, CSS y JavaScript que consume una API REST construida con Java utilizando el ecosistema de Spring Boot</h4>
 
-Esta página permite Agregar taréas a realizar, Marcarlas como Realizadas y también Eliminarlas. Almacenandolas en la base de datos y ordenandolas por fecha y horario. Todo esto se realiza mediante la utilización de los endpoints que provee la API. Esto se puede realizarlo mediante funciones en JavaScript, que permite crear elementos, agregar clases y modificarlas e incluso eliminar esos elementos creados dinamicamente.
+Este sistema permite crear tareas pendientes, marcarlas como finalizadas y eliminarlas. Los datos se persisten en una base de datos relacional, organizándose por fecha y hora. Toda la funcionalidad se implementa mediante el consumo de endpoints REST proporcionados por el backend. El frontend utiliza JavaScript vanilla para generar elementos dinámicamente, agregar y modificar clases CSS, así como eliminar componentes creados en tiempo de ejecución.
 
-Base de Datos: de tipo Relacional, MySQL 
+**Gestor de Base de Datos:** MySQL (Sistema Relacional)
 
-Swagger: Herramienta utilizada para la documentación de la API-REST
+**Documentación de API:** Swagger - Herramienta para documentar servicios REST
 
-Postman: Herramienta utilizada para el testeo de la API-REST
+**Testing de Endpoints:** Postman - Plataforma para probar APIs
 
-## Backend
+## Tecnologías del Backend
 
-### Versiones utilizadas:
+### Stack Tecnológico:
 
-* Java Development Kit (JDK) 17
-* Spring Boot 3.0.2
+* Java Development Kit (JDK) versión 17
+* Spring Boot versión 3.0.2
 
-### Dependencias utilizadas para el proyecto:
+### Librerías y Dependencias:
 
 * spring-boot-starter-web
 * spring-boot-starter-test
@@ -36,43 +35,57 @@ Postman: Herramienta utilizada para el testeo de la API-REST
 * springdoc-openapi-ui
 * hibernate-validator
 
-#### Para Crear el proyecto desde cero:
+#### Inicializar un Proyecto Nuevo:
 
-1. Ingresar a la página de Spring Initializr: https://start.spring.io/
-2. Seleccionar las dependencias necesarias para el proyecto
+1. Acceder al portal de Spring Initializr: https://start.spring.io/
+2. Configurar las dependencias requeridas
+3. Generar y descargar el archivo comprimido del proyecto
+4. Extraer el contenido del archivo ZIP
+5. Importar el proyecto en tu IDE preferido (Eclipse, IntelliJ IDEA, NetBeans, etc.)
+6. Incorporar las dependencias adicionales no disponibles en el sitio editando el archivo **pom.xml** (según la lista anterior)
 
-![Crear Repositorio Initializr](https://i.postimg.cc/pXxVLj1P/Spring-Initializr.png)
-3. Descargar el proyecto
-4. Descomprimir el proyecto
-5. Abrir el proyecto en un IDE (Eclipse, IntelliJ, NetBeans, etc) 
-6. Agregar las dependencias restantes que no se encontraron en la página en el archivo <b>"pom.xml"</b> (conforme lista de dependencias anterior)
+### Instrucciones de Ejecución:
 
-### Pasos para iniciar el proyecto:
+1. Clonar el repositorio desde GitHub
+2. Importar el proyecto en tu IDE de preferencia (Eclipse, IntelliJ IDEA, NetBeans, etc.)
+3. Crear el archivo "application.yml" en la ruta `src/main/resources/` con la siguiente configuración:
 
-1. Clonar el repositorio desde el GitHub
+```yaml
+spring:
+  application:
+    name: ToDo API
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_todo_api?useSSL=false&serverTimezone=UTC
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
-![Clonar Repositorio](https://i.postimg.cc/SxBFs2yy/Clonar.png)
-2. Abrir el proyecto en un IDE (Eclipse, IntelliJ, NetBeans, etc)
-3. Modificar el archivo "application.yml" con el usuario y contraseña de la base de datos.
+server:
+  port: 8080
+```
 
-![Modificar application.yml](https://i.postimg.cc/ZqW8fn3y/Properties.png)
-4. (Opcional) en caso de no querer exponer el usuario y contraseña de la base de datos en el archivo "application.yml", se puede crear variables de entorno en el sistema operativo y llamarlas desde el archivo "application.yml" de la siguiente manera:
-   - En la barra superior al lado del martillo verde (build), aparece el nombre del proyecto, hacer click y seleccionar "Edit Configurations..."
-   - En la ventana que se abre, en la parte central de la pantalla seleccionar "Environment variables:" agregar las variables de entorno con el nombre de "DB_USER" y "DB_PASSWORD" y el valor correspondiente a cada una.
-   
-![Variables de Entorno 1](https://i.postimg.cc/52yJRWtC/Config-user-y-pass-1.png)
-![Variables de Entorno 2](https://i.postimg.cc/Ss6bMygw/Config-user-y-pass-2.png)
-5. La base de datos en MySQL con el nombre de "db_todo_api" se creará automaticamente cuando el proyecto se inicie por primera vez.
-6. (Opcional) en caso de necesidad de apertura de puertos: Utilizar sistema de gestión de bases de datos: en mi caso <b>XAMP</b>, para abrir los puertos de conexión.
-7. Iniciar el proyecto desde el IDE
+**Nota:** Si tu MySQL no tiene contraseña configurada (común en XAMPP), deja el campo `password:` vacío o con comillas vacías `""`.
 
-### Endpoints de la API
+4. (Opcional) Si prefieres no exponer tus credenciales directamente en el archivo "application.yml", puedes utilizar variables de entorno del sistema operativo:
+   * En la barra superior, junto al ícono de compilación (martillo verde), localiza el nombre del proyecto
+   * Haz clic y selecciona "Edit Configurations..."
+   * En la ventana emergente, busca la sección "Environment variables:" en el panel central
+   * Define las variables "DB_USER" y "DB_PASSWORD" con sus respectivos valores
+5. La base de datos MySQL llamada "db_todo_api" se generará automáticamente en el primer arranque de la aplicación.
+6. (Opcional) Si necesitas gestionar la apertura de puertos: Utiliza un gestor de bases de datos como **XAMPP** para habilitar las conexiones.
+7. Ejecutar la aplicación desde el IDE
+
+### Rutas de la API
 
 #### POST
 
-El endpoint de creación de tareas es: http://localhost:8080/api/v1/tasks/create
+Ruta para crear tareas: http://localhost:8080/api/v1/tasks/create
 
-En el body del request se debe enviar un JSON con el siguiente formato:
+Estructura JSON requerida en el cuerpo de la petición:
 
 ```json
 {
@@ -84,47 +97,31 @@ En el body del request se debe enviar un JSON con el siguiente formato:
 
 #### GET
 
-El endpoint de obtención de tareas es: http://localhost:8080/api/v1/tasks/all
+Ruta para obtener todas las tareas: http://localhost:8080/api/v1/tasks/all
 
 #### PATCH
 
-El endpoint de actualización del estado de la tarea es: http://localhost:8080/api/v1/tasks/mark_as_finished/{id}/{finished}
+Ruta para actualizar el estado de una tarea: http://localhost:8080/api/v1/tasks/mark_as_finished/{id}/{finished}
 
-Entiendase que como id se debe enviar el "ID" de la tarea que se desea actualizar y como finished se debe enviar un booleano (true o false) para indicar si la tarea se encuentra finalizada o no.
+Donde "id" corresponde al identificador de la tarea a modificar y "finished" es un valor booleano (true o false) que indica el estado de finalización.
 
 #### DELETE
 
-El endpoint de eliminación de tareas es: http://localhost:8080/api/v1/tasks/delete/{id}
+Ruta para eliminar tareas: http://localhost:8080/api/v1/tasks/delete/{id}
 
-Entiendase que como id se debe enviar el "ID" de la tarea que se desea eliminar.
+Donde "id" corresponde al identificador de la tarea a eliminar.
 
-### Testeo de la API
+## Tecnologías del Frontend
 
-Para el testeo de la API se utilizó la herramienta Postman. 
+El frontend fue desarrollado utilizando HTML5, CSS3 y JavaScript ES6+ sin frameworks externos.
+La interfaz es estática pero totalmente responsive, adaptándose a diferentes dispositivos.
 
-Para ello comparto el Postman que tiene todas las pruebas realizadas para la API. Se puede descargar desde el siguiente link: [https://github.com/lokywolf2295/ToDo_Front_-_API/Tasks.postman_collection.json](https://github.com/lokywolf2295/ToDo_Front_-_API/blob/test/Tasks.postman_collection.json)
+### Biblioteca de Componentes UI
 
-![Postman](https://i.postimg.cc/XNk1ZVS6/Postman.png)
-### Documentación de la API
+Para las alertas, modales y elementos interactivos se utilizó SweetAlert2: https://sweetalert2.github.io/#examples
 
-Para la documentación de la API se utilizó la herramienta Swagger.
+Los componentes se personalizaron según las necesidades específicas del proyecto, eligiendo los ejemplos más apropiados según los requerimientos de experiencia de usuario.
 
-Para acceder a la documentación de la API se debe ingresar a la siguiente URL: http://localhost:8080/swagger-ui/index.html
+Servidor de Desarrollo
 
-![Swagger](https://i.postimg.cc/GtXjXmdB/Swagger.png)
-## Frontend
-
-En el Frontend se utilizó HTML, CSS y JavaScript para la creación de la página web. No se utilizaron Frameworks de CSS ni de JavaScript. 
-Haciendo que esta página sea estática pero si responsive.
-
-![Frontend](https://i.postimg.cc/sDSYBmZQ/Frontend.png)
-
-### De donde saco los ejemplos de alertas, botones, etc?
-
-Usando la página SweetAlert2: https://sweetalert2.github.io/#examples, usamos los ejemplos que nos provee la página y los adaptamos a nuestro proyecto. Esto siempre va a depender de que necesidades de efectos tenemos.
-
-![SweetAlert2](https://i.postimg.cc/dVVz4ws4/Sweet-Alert2.png)
-
-### Para correr la app
-
-Uso la extensión de Live Server para poder correr la aplicación en un servidor local y que permite ver los cambios que se realizan en el codigo, de manera automática luego de guardar los cambios y sin necesidad de volver a correr la aplicación nuevamente.
+Se utiliza la extensión Live Server para ejecutar la aplicación en un servidor local. Esta herramienta permite visualizar los cambios en tiempo real al guardar los archivos, sin necesidad de recargar manualmente el navegador.

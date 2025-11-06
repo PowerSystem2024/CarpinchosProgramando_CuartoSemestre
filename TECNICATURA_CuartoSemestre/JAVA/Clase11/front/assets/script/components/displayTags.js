@@ -15,8 +15,9 @@ export const displayTasks = async () => {
         list.appendChild(dateElement(date));
 
         tasks.forEach((task) => {
-        const taskDate = moment(task.date, "YYYY/MM/DD").format("DD/MM/YYYY");
-        const diff = dateMoment.diff(moment(taskDate, "DD/MM/YYYY"), "days");
+            // task.date viene del backend como YYYY-MM-DD
+            const taskDate = moment(task.date, "YYYY-MM-DD").format("DD/MM/YYYY");
+            const diff = dateMoment.diff(moment(taskDate, "DD/MM/YYYY"), "days");
 
             if (diff == 0) {
                 list.appendChild(createTask(task));

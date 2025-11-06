@@ -1,164 +1,133 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Dosis', sans-serif;
-    font-size: 16px;
+{{ ... }}
+
+:root {
+  --bg-grad-start: #ffd1dc;   /* pastel pink */
+  --bg-grad-end:   #c9b6ff;   /* soft lavender */
+  --accent:        #ff7eb8;   /* candy pink */
+  --accent-2:      #b388ff;   /* soft purple */
+  --text:          #2b2b2b;
+  --muted:         #7a7a7a;
+  --card-bg:       rgba(255, 255, 255, 0.85);
+  --shadow:        0 12px 30px rgba(179, 136, 255, 0.25);
+  --radius-lg:     22px;
+  --radius-sm:     12px;
 }
 
 main {
-    background-image: linear-gradient(
-        109.6deg,
-        rgba(62, 161, 219, 1) 11.2%,
-        rgba(93, 52, 236, 1) 100.2%
-    );
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: linear-gradient(135deg, var(--bg-grad-start), var(--bg-grad-end));
 }
 
-img{
-    width: 50px;
+.mainCard {
+  width: min(820px, 92vw);
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.title img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(255, 126, 184, 0.35));
+}
+
+h1 {
+  font-family: 'Parisienne', cursive;
+  font-size: clamp(28px, 3.4vw, 40px);
+  color: var(--text);
+  letter-spacing: 0.6px;
+}
+
+form {
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputForm,
+input[type="datetime-local"] {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: black;
+  width: 30%;
+  transition: box-shadow .2s ease, transform .06s ease;
+}
+
+.inputForm:focus,
+input[type="datetime-local"]:focus {
+  outline: 4px solid hotpink;
+  box-shadow: 0 8px 18px rgba(179, 136, 255, 0.25);
+}
+
+.btnCreate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  padding: 12px 18px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 10px 24px rgba(255, 126, 184, 0.35);
+  transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.btnCreate:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(255, 126, 184, 0.4);
+  filter: saturate(1.08);
+}
+
+.cardsList {
+  gap: 10px;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-2) transparent;
+}
+
+.cardsList::-webkit-scrollbar { width: 8px; }
+.cardsList::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  border-radius: 8px;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  transition: transform .08s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.10);
 }
 
 .utn{
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-h1{
-    font-size: 30px;
-    margin-left: 15px;
-}
-
-form {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.mainCard {
-    width: 40vw;
-    border-radius: 25px;
-    background-color: #fff;
-    padding: 25px;
-}
-
-.title {
-    font-family: 'Dosis', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 15px;
-}
-
-.inputForm {
-    border: none;
-    padding: 10px;
-    border: 1px solid #eee;
-    outline: none;
-    width: 45%;
-}
-
-.inputForm::placeholder {
-    padding: 0px;
-}
-
-.btnCreate {
-    padding: 10px 15px;
-    background-image: linear-gradient(
-        109.6deg,
-        rgba(62, 161, 219, 1) 11.2%,
-        rgba(93, 52, 236, 1) 100.2%
-    );
-    border: none;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.cardsList {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    overflow-y: scroll;
-    max-height: 60vh;
-    height: 60vh;
-}
-
-.card {
-    width: 90%;
-    padding: 15px;
-    box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.16);
-    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    margin: 5px 0px;
-    position: relative;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
 }
 
-.task {
-    padding: 10px;
-}
+.task { color: var(--text); }
+.icon { color: var(--muted); transition: color .2s ease, transform .06s ease; }
+.icon:hover { color: var(--accent-2); transform: scale(1.06); }
+.completeIcon { color: var(--accent-2); }
+.trashIcon:hover { color: #ff5c8a; }
 
-.icon {
-    cursor: pointer;
-}
+.date { color: var(--muted); font-weight: 600; }
 
-.icon:hover {
-    color: rgba(62, 161, 219, 1);
-}
-
-.completeIcon {
-    color: rgba(62, 161, 219, 1);
-}
-
-.trashIcon:hover {
-    color: #f00;
-}
-
-.deleteConfirmationPop {
-    position: relative;
-    background-color: rgba(255, 255, 255);
-    z-index: 99;
-    width: 100%;
-    top: -100px;
-    left: 0;
-}
-.deleteSpace {
-    position: relative;
-    width: 30%;
-}
-
-.noTasks {
-    font-size: 48px;
-}
-
-.date{
-    width: 100%;
-    padding: 15px;
-}
-
-/*Agregamos las Media Querrys para que todo sea responsive*/
-
-@media screen and (max-width: 1424px) {
-.mainCard {
-    width: 60vw;
-}
-.inputForm {
-    width: 80%;
-}
-input{
-    margin: 2%;
-}
-.btnCreate {
-    width: 80%;
-}
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  form { flex-direction: column; align-items: stretch; }
+  .inputForm, input[type="datetime-local"], .btnCreate { width: 100%; }
 }

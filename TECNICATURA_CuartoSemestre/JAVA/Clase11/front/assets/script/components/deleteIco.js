@@ -1,5 +1,5 @@
 import { deleteTask } from "./../data/deleteTask.js";
-import { displayTasks } from "./displayTasks.js";
+import { displayTasks } from "./displayTags.js";
 
 const createDelIcon = (id) => {
     const i = document.createElement("i"); // Creamos un elemento i

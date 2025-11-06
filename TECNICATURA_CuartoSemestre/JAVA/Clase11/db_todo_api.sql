@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 19-07-2023 a las 00:42:06
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.0.25
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -42,11 +33,11 @@ CREATE TABLE `task` (
 --
 
 INSERT INTO `task` (`id`, `created_date`, `date`, `enable`, `finished`, `time`, `title`) VALUES
-(1, '2023-05-27 22:56:24.000000', '2023-05-28', b'1', b'0', '12:30:00', 'Realizar el Front de la Página ToDo'),
-(2, '2023-05-27 22:57:00.000000', '2023-05-30', b'1', b'0', '17:40:00', 'Realizar el Back de la Página ToDo'),
-(3, '2023-05-27 22:58:36.000000', '2023-06-02', b'1', b'0', '19:20:00', 'Hacer el deploy de la Página ToDo'),
-(52, '2023-05-28 13:44:18.000000', '2023-05-29', b'1', b'0', '10:15:00', 'Revisar que el diseño esté correcto'),
-(102, '2023-05-31 13:14:52.000000', '2023-05-31', b'1', b'0', '13:30:00', 'Prueba de Swagger');
+(1, '2025-10-20 22:56:24.000000', '2025-10-22', b'1', b'0', '12:30:00', 'Realizar el Front de la Página ToDo'),
+(2, '2025-10-22 22:57:00.000000', '2025-10-24', b'1', b'0', '17:40:00', 'Realizar el Back de la Página ToDo'),
+(3, '2025-10-25 22:58:36.000000', '2025-10-28', b'1', b'0', '19:20:00', 'Hacer el deploy de la Página ToDo'),
+(52, '2025-10-28 13:44:18.000000', '2025-10-30', b'1', b'0', '10:15:00', 'Revisar que el diseño esté correcto'),
+(102, '2025-10-31 13:14:52.000000', '2025-11-01', b'1', b'0', '13:30:00', 'Prueba de Swagger');
 
 -- --------------------------------------------------------
 

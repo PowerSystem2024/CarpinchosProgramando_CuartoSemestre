@@ -1,63 +1,64 @@
 import checkComplete from "./checkComplete.js";
 import createDelIcon from "./deleteIco.js";
-import { displayTasks } from "./displayTasks.js";
+import { displayTasks } from "./displayTags.js";
 import { sendTask } from "../data/sendTask.js";
 
 export const addTask = (event) => {
-    event.preventDefault(); // Evita que se recargue la pagina borrando la información
+  event?.preventDefault?.();
+  console.log("addTask disparado");
 
-    const list = document.querySelector("[data-list]"); // Guardamos el ul que contendra los mensajes
-    const input = document.querySelector("[data-form-input]"); // Guardamos el input
-    const calendar = document.querySelector("[data-form-date]"); // Guardamos el input de la fecha
+  const list = document.querySelector("[data-list]");
+  const input = document.querySelector("[data-form-input]");
+  const calendar = document.querySelector("[data-form-date]");
 
-    const title = input.value; // Guardamos la información del input
-    const date = calendar.value; // Guardamos la información de la fecha
-    const dateFormat = moment(date).format("yyyy-MM-DD");
-    const time = moment(date).format("HH:mm");
+  const title = (input?.value || "").trim();
+  const date = (calendar?.value || "").trim();
 
-    if (input == "" || date == "") {
-        // Corroboramos que ambos inputs tengan información
-        return;
-    }
+  console.log("valores:", { title, date });
 
-    input.value = ""; // Vaciamos el input
-    calendar.value = ""; // Vaciamos el calendario
+  if (!title || !date) {
+    window.Swal?.fire({
+      icon: "warning",
+      title: "Completá título y fecha",
+      timer: 1400,
+      showConfirmButton: false,
+      position: "top",
+    });
+    return;
+  }
 
-    const finished = false; // Se utilizará para verificar si el check está activado o no
+  const dateFormat = moment(date).format("YYYY-MM-DD");
+  const time = moment(date).format("HH:mm");
+  const taskObj = { title, date: dateFormat, time, finished: false };
 
-    const taskObj = {
-        // Crea una variable que almacena una clave y su valor
-        title, // Texto
-        date:dateFormat, // Fecha
-        time, // Hora
-        finished, // Para el check
-    };  
+  console.log("enviando taskObj", taskObj);
 
-    list.innerHTML = ""; // Por cada vez que se agreguen tareas nuevas se vacía la estructura
-
-    sendTask(taskObj); // Llama a la función que envía la tarea a la API
-    displayTasks(); // Llama a la función que agrupa las fechas
+  if (list) list.innerHTML = "";
+  sendTask(taskObj);
+  displayTasks();
 };
 
-// Arrow function o funciones flechas / anónimas
-export const createTask = ({ id, title, time,finished}) => {
-    const task = document.createElement("li"); // Creo un elemento li
-    task.classList.add("card"); // Agregamos una clase al task
+// createTask
+
+// Arrow function o funcion flechas / anónimas
+export const createTask = ({ id, title, time, finished }) => {
+    const task = document.createElement("li");
+    task.classList.add("card");
 
     // Backticks
-    const taskContent = document.createElement("div"); // Creo un elemento div
-    const check = checkComplete(id,finished);
+    const taskContent = document.createElement("div");
+    const check = checkComplete(id, finished);
 
-    const titleTask = document.createElement("span"); // Creo un elemento span
-    titleTask.classList.add("task"); // Agregamos la clase task al titleTask
-    titleTask.innerText = title; // Agregamos al titleTask el valor del inpút
-    taskContent.appendChild(check); // Agregamos al div check
-    taskContent.appendChild(titleTask); // Agregamos al contenido el titleTask
+    const titleTask = document.createElement("span");
+    titleTask.classList.add("task");
+    titleTask.innerText = title;
+    taskContent.appendChild(check);
+    taskContent.appendChild(titleTask);
 
-    const dateElement = document.createElement("span"); // Creo el elemento span para la fecha
-    dateElement.innerHTML = time; // Le agrego al span la hora obtenida
-    task.appendChild(taskContent); // Agrego al task el div con la info ingresada en el input
-    task.appendChild(dateElement); // Agrego al task la fecha
-    task.appendChild(createDelIcon(id)); // Agrego al contenido el icono del basurero
+    const dateElement = document.createElement("span");
+    dateElement.innerHTML = time;
+    task.appendChild(taskContent);
+    task.appendChild(dateElement);
+    task.appendChild(createDelIcon(id));
     return task;
 };

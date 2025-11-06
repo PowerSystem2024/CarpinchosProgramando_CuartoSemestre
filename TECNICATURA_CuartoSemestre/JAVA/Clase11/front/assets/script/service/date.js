@@ -9,12 +9,15 @@ export const uniqueDates = (tasks) => {
     return unique;
 };
 
-export const orderDates = (dates) => { // Ordena cada fecha de la mas antigua a la mas moderna / furura
-    return dates.sort((a, b) => {
-        const firstDate = moment(a, "DD/MM/YYYY");
-        const secondDate = moment(b, "DD/MM/YYYY");
-        return firstDate - secondDate;
-    }).map(date => moment(date, "YYYY-MM-DD").format("DD/MM/YYYY"));
+export const orderDates = (dates) => { // Ordena de más antigua a más moderna
+    return dates
+        .sort((a, b) => {
+            // a y b vienen como YYYY-MM-DD desde el backend
+            const firstDate = moment(a, "YYYY-MM-DD");
+            const secondDate = moment(b, "YYYY-MM-DD");
+            return firstDate - secondDate;
+        })
+        .map(date => moment(date, "YYYY-MM-DD").format("DD/MM/YYYY"));
 };
 
 export const orderTimes = (dates) => { // Ordena los horarios

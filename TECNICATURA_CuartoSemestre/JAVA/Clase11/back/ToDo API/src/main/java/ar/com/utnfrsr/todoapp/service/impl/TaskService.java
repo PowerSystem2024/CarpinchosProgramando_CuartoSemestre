@@ -46,7 +46,6 @@ public class TaskService implements ITaskService {
         if (optionalTask.isEmpty()) { //si no hay taréa
             throw new ToDoExceptions("Task not found", HttpStatus.NOT_FOUND);
         }
-        finished = !finished;
         this.repository.markTaskAsFinished(id, finished);
     }
 
