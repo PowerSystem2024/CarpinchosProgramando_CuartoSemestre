@@ -23,8 +23,8 @@
 | 13/10 al 19/10               | Lanatta, Wanda          | 🟢 Clases, captura, documentacion, reuniones   |
 | 20/10 al 26/10               | Ríos Garín, Ana Paula            | 🟢 Clases, captura, documentacion, reuniones |
 | 27/10 al 02/11               | Aguilera, Mariana      | 🟢 Clases, captura, documentacion, reuniones |
-| 03/11 al 09/11               | Mercado, Nicolás          | 🟡 |
-| 10/11 al 16/11               | Atim, Mercedes           | 🟡 |
+
+
 
 
 
