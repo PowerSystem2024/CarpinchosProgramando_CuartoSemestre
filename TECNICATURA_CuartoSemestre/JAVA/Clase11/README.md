@@ -1,7 +1,7 @@
-<div align="center">
 # Gestor de Tareas - API REST
 <br>
-<img src="https://w7.pngwing.com/pngs/972/511/png-transparent-todo-sketch-note-list-tasks-thumbnail.png" alt="Imagen de ToDo">
+<img src="https://raw.githack.com/MerAtim/CuartoSemestreUTN/main/Assets/carpiTasks.png" alt="Vista de tareas Carpi" width="250"/>
+
 <h3>Sistema Web de Gestión de Tareas desarrollado con Spring Boot</h3>
 
 </div>
@@ -116,12 +116,3 @@ Donde "id" corresponde al identificador de la tarea a eliminar.
 El frontend fue desarrollado utilizando HTML5, CSS3 y JavaScript ES6+ sin frameworks externos.
 La interfaz es estática pero totalmente responsive, adaptándose a diferentes dispositivos.
 
-### Biblioteca de Componentes UI
-
-Para las alertas, modales y elementos interactivos se utilizó SweetAlert2: https://sweetalert2.github.io/#examples
-
-Los componentes se personalizaron según las necesidades específicas del proyecto, eligiendo los ejemplos más apropiados según los requerimientos de experiencia de usuario.
-
-Servidor de Desarrollo
-
-Se utiliza la extensión Live Server para ejecutar la aplicación en un servidor local. Esta herramienta permite visualizar los cambios en tiempo real al guardar los archivos, sin necesidad de recargar manualmente el navegador.
